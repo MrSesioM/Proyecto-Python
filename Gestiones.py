@@ -20,8 +20,6 @@ def lista_csv():
 lista = lista_csv()
 
 
-
-
 def introduce_datos():
 
     datos = []
