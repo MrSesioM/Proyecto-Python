@@ -13,7 +13,7 @@ def menu():
                     
                     match opcion:
                         case "1":
-                            print()
+                            print(Gestiones.alta_juegos())
                             break
 
                         case "2":
@@ -32,7 +32,7 @@ def menu():
             
             case "b":
                 while True:
-                    print("\n1 - Listar todos los juegos.\n2 - Listar todos los editores.\n3 - Listar todos los juegos por genero.\n4 - Listar todos los juegos del siglo XX.\n5 - Listar todos los juegos publicados en años pares.\n6 - Listar todos los juego de Nintendo.\n7 - Listar todos los juegos con mayor media de ventas.\n8 - Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo.\n0 - Salir.")
+                    print("\n1 - Listar todos los juegos.\n2 - Listar todos los editores.\n3 - Listar todos los juegos del género 'plataforma'.\n4 - Listar todos los juegos del siglo XX.\n5 - Listar todos los juegos publicados en años pares.\n6 - Listar todos los juego de Nintendo.\n7 - Listar todos los juegos con mayor media de ventas.\n8 - Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo.\n0 - Salir.")
                     opcion = input("Introduce una opción: ")
                     
                     match opcion:
@@ -41,11 +41,11 @@ def menu():
                             break
 
                         case "2":
-                            print()
+                            print(Listado.listado_editores())
                             break
                         
                         case "3":
-                            print()
+                            print(Listado.listado_juegos_genero())
                             break
 
                         case "4":
@@ -72,12 +72,12 @@ def menu():
                             break
 
                         case _:
-                            print("No has introducido una opcion correcta.")
+                            print("No has introducido una opción correcta.")
 
             case "0":
                 break
 
             case _:
-                print("No has elegido una opcion correcta.")
+                print("No has elegido una opción correcta.")
 
 menu()
