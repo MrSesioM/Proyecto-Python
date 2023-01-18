@@ -17,8 +17,12 @@ def leer_csv(archivo):
 
 # Funcion auxiliar par pedir datos
 def introduce_datos():
-
     datos = []
+    datos.append(len(lista))
+    datos_introducir = ['Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
+    for i in range (len(datos_introducir)):
+        
+        datos.append(input(f"Introduce el {datos_introducir[i]}: "))
     lista =['Rank', 'Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
     floats = ['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
     strings = ['Genre', 'Publisher']
@@ -71,3 +75,4 @@ def alta_juegos():
 introduce_datos()
 leer_csv('vgsales.csv')
 
+    
