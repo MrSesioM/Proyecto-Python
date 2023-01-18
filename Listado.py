@@ -19,4 +19,4 @@ def listado_plataformas():
     for juego in Gestiones.lista:
         if(juego[4] == "Platform"):
             juegos_plataforma.append(juego)
-    return juegos_plataforma
+    return juegos_plataformagit 
