@@ -18,11 +18,11 @@ def listado_plataformas():
     for juego in Gestiones.lista:
         if(juego[4] == "Platform"):
             juegos_plataforma.append(juego[1])
-    print(juegos_plataforma) 
+    return juegos_plataforma
 
 
 
 
 
 listado_plataformas()
-#listado_editores()
+listado_editores()
