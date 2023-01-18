@@ -5,9 +5,6 @@ def listado_juegos():
     return Gestiones.lista
 
 
-def listado_juegos_genero():
-
-
 def listado_editores():
     lista_editores = []
     for juego in Gestiones.lista:
@@ -22,3 +19,5 @@ def listado_plataformas():
         if(juego[4] == "Platform"):
             juegos_plataforma.append(juego)
     return juegos_plataforma
+
+listado_editores()

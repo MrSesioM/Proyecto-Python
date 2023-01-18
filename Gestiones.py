@@ -13,7 +13,7 @@ def lista_csv():
             lista.append(row)     
 
         # Imprimimos la lista para verificar que los datos se hayan guardado correctamente. 
-        print(lista)
+        #print(lista)
     return lista
 
 
