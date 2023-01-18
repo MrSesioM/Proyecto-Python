@@ -18,7 +18,8 @@ def leer_csv(archivo):
 # Funcion auxiliar par pedir datos
 def introduce_datos():
     datos = []
-    datos.append(len(lista))
+    rank = len(lista) + 2
+    datos.append(rank)
     datos_introducir = ['Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
     for i in range (len(datos_introducir)):
         
