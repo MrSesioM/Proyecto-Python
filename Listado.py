@@ -20,4 +20,3 @@ def listado_plataformas():
             juegos_plataforma.append(juego[1])
     return juegos_plataforma
 
-
