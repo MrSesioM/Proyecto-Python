@@ -1,9 +1,12 @@
 import csv
 
-def lista_csv():
 
-    lista=[]
-    with open('vgsales.csv') as juegos:
+lista=[]
+#Carga el fichero csv en la lista
+
+def leer_csv(archivo):
+
+    with open(archivo) as juegos:
 
         # Utilizamos la libreria csv para leer el archivo y lo guardamos en una variable llamada reader. 
         reader = csv.reader(juegos, delimiter=',')
@@ -12,14 +15,8 @@ def lista_csv():
         for row in reader:
             lista.append(row)     
 
-        # Imprimimos la lista para verificar que los datos se hayan guardado correctamente. 
-        print(lista)
-    return lista
 
-
-lista = lista_csv()
-
-
+# Funcion auxiliar par pedir datos
 def introduce_datos():
 
     datos = []
@@ -30,7 +27,7 @@ def introduce_datos():
      
     return datos
 
-
+# Carga juegos en la lista con los datos obtenidos en la funcion introduce_datos
 def alta_juegos():
     
     juego=introduce_datos()
@@ -38,4 +35,5 @@ def alta_juegos():
     return lista[len(lista)-1]
   
     
-   
+leer_csv('vgsales.csv')
+
