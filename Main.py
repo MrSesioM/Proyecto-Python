@@ -25,19 +25,21 @@ def menu():
     os.system("cls")
     while True:
         
-        print("""\n[A] |Gestionar juegos.|\n
-[B] |Mostar informes. |\n
-[0] |Salir.           |\n""")
+        print("""\n [A] |Gestionar juegos.|\n
+                    [B] |Mostar informes. |\n
+                    [0] |Salir.           |\n""")
         opcion = input("Introduce la tarea que quieras realizar: ")
         match opcion:
             case "a":
                 os.system("cls")
                 while True:
     
-                    print("""\n[1] |Dar de alta un juego. |\n
-[2] |Editar un juego.      |\n
-[3] |Eliminar un juego.    |\n
-[0] |Volver.               |\n""")
+                    print("""\n [1] |Dar de alta un juego. |\n
+                                [0] |Volver.               |\n
+                                """)
+                    #[2] |Editar un juego.      |\n
+                    #[3] |Eliminar un juego.    |\n
+                    
                     opcion = input("Introduce una opción: ")
                     
                     match opcion:
@@ -65,17 +67,17 @@ def menu():
                 os.system("cls")
                 while True:
     
-                    print("""[1] |Listar todos los juegos                                                      |\n
-[2] |Listar todos los editores                                                    |\n
-[3] |Listar todos los juegos del género 'Plataformas'.                            |\n
-[4] |Listar todos los juegos filtrados por género.                                |\n
-[5] |Listar todos los juegos del siglo XX.                                        |\n
-[6] |Listar todos los juegos publicados en años pares.                            |\n
-[7] |Listar todos los juego de Nintendo.                                          |\n
-[8] |Listar todos los juegos con mayor media de ventas.                           |\n
-[9] |Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo. |\n
-[0] |Volver.                                                                      |\n""")
-
+                    print("""   [1] |Listar todos los juegos                                                      |\n
+                                [2] |Listar todos los editores                                                    |\n
+                                [3] |Listar todos los juegos del género 'Plataformas'.                            |\n
+                                [0] |Volver.                                                                      |\n""")
+    
+                    #[4] |Listar todos los juegos filtrados por género.                                |\n
+                    #[5] |Listar todos los juegos del siglo XX.                                        |\n
+                    #[6] |Listar todos los juegos publicados en años pares.                            |\n
+                    #[7] |Listar todos los juego de Nintendo.                                          |\n
+                    #[8] |Listar todos los juegos con mayor media de ventas.                           |\n
+                    #[9] |Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo. |\n
                     opcion = input("Introduce una opción: ")
                     
                     match opcion:
