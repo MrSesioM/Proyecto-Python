@@ -48,7 +48,7 @@ def menu():
                             print(Listado.listado_plataformas())
                             break
 
-                        """case "4":
+                        case "4":
                             print()
                             break
 
@@ -69,7 +69,7 @@ def menu():
                             break
                         
                         case "9":
-                            print()"""
+                            print()
 
                         case "0":
                             break

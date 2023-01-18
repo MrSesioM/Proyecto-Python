@@ -24,15 +24,14 @@ def introduce_datos():
     for i in range (len(datos_introducir)):
         
         datos.append(input(f"Introduce el {datos_introducir[i]}: "))
-    lista =['Rank', 'Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
     floats = ['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
     strings = ['Genre', 'Publisher']
     for i in range (len(lista)):
         while True:
             # Compruebo si se introduce un dato válido en Year (un número entero mayor a 1958)
-            if lista[i] == "Year":
+            if datos_introducir[i] == "Year":
                 try:
-                    datos.append(int(input(f"Introduce el {lista[i]}: ")))
+                    datos.append(int(input(f"Introduce el {datos_introducir[i]}: ")))
                     assert datos[i] >= 1958, "No puedes introducir un año menor a 1958."
                 except ValueError:
                     print("No has introducido un número válido")
@@ -42,9 +41,9 @@ def introduce_datos():
                 else:
                     break
             # Compruebo si se introduce un dato válido en Genre o Publisher (que no sea un número o un float, tiene que contener caracteres)
-            elif lista[i] in strings:
+            elif datos_introducir[i] in strings:
                 try:
-                    datos.append(input(f"Introduce el {lista[i]}: "))
+                    datos.append(input(f"Introduce el {datos_introducir[i]}: "))
                     datos[i] = float(datos[i])
                 except ValueError:
                     break
@@ -52,15 +51,15 @@ def introduce_datos():
                     print("No puedes introducir solamente un número.")
                     datos.pop()
             # Compruebo si se introduce 
-            elif lista[i] in floats:
+            elif datos_introducir[i] in floats:
                 try:
-                    datos.append(float(input(f"Introduce el {lista[i]}: ")))            
+                    datos.append(float(input(f"Introduce el {datos_introducir[i]}: ")))            
                 except ValueError:
                     print("No has introducido un número válido")
                 else:
                     break
             else:
-                datos.append(input(f"Introduce el {lista[i]}: "))
+                datos.append(input(f"Introduce el {datos_introducir[i]}: "))
                 break
             
      
@@ -73,7 +72,6 @@ def alta_juegos():
     lista.append(juego)
     return lista[len(lista)-1]
   
-introduce_datos()
 leer_csv('vgsales.csv')
 
     
