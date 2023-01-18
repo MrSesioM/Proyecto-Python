@@ -17,7 +17,7 @@ class TestGestiones(unittest.TestCase):
         self.assertEqual(resultado,lista_editores)
 
     def test_listado_plataformas(self):
-        resultado = Listado.listado_plataformas()
+        resultado = Listado.listado_juegos_plataformas()
         self.assertEqual(resultado,lista_plataformas)
 
 if __name__ == '__main__':
