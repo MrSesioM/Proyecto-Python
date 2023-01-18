@@ -84,7 +84,7 @@ def menu():
                             volver_menu()
 
                         case "2":
-                            (Listado.ordenar_listas(enumerate(Listado.listado_editores(),1)))
+                            Listado.listado_editores()
                             volver_menu() 
                         
                         case "3":
