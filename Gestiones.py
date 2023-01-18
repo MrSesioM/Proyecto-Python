@@ -15,6 +15,8 @@ def leer_csv(archivo):
         for row in reader:
             lista.append(row)
 
+
+
 # Funcion auxiliar par pedir datos
 def introduce_datos():
 
