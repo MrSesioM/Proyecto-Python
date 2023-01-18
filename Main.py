@@ -48,29 +48,6 @@ def menu():
                             print(Listado.listado_plataformas())
                             break
 
-                        case "4":
-                            print()
-                            break
-
-                        case "5":
-                            print()
-                            break
-                        
-                        case "6":
-                            print()
-                            break
-                        
-                        case "7":
-                            print()
-                            break
-                        
-                        case "8":
-                            print()
-                            break
-                        
-                        case "9":
-                            print()
-
                         case "0":
                             break
 
