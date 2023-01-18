@@ -3,13 +3,14 @@ import csv
 def lista_csv():
 
     lista=[]
+    
     with open('vgsales.csv') as juegos:
 
         # Utilizamos la libreria csv para leer el archivo y lo guardamos en una variable llamada reader. 
         reader = csv.reader(juegos, delimiter=',')
 
         # Recorremos todas las lineas del archivo con un for y guardamos los datos en la lista lista[] que creamos antes. 
-        for row in reader:
+    for row in reader:
             lista.append(row)     
 
         # Imprimimos la lista para verificar que los datos se hayan guardado correctamente. 
