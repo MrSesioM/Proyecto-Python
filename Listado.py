@@ -21,8 +21,3 @@ def listado_plataformas():
     return juegos_plataforma
 
 
-
-
-
-listado_plataformas()
-listado_editores()
