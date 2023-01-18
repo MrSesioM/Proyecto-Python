@@ -32,7 +32,7 @@ def menu():
             
             case "b":
                 while True:
-                    print("\n1 - Listar todos los juegos.\n2 - Listar todos los editores.\n3 - Listar todos los juegos filtrados por género.\n4 - Listar todos los juegos del siglo XX.\n5 - Listar todos los juegos publicados en años pares.\n6 - Listar todos los juego de Nintendo.\n7 - Listar todos los juegos con mayor media de ventas.\n8 - Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo.\n0 - Salir.")
+                    print("\n1 - Listar todos los juegos.\n2 - Listar todos los editores.\n3 - Listar todos los juegos del género 'Plataformas'.\n4 - Listar todos los juegos filtrados por género.\n5 - Listar todos los juegos del siglo XX.\n6 - Listar todos los juegos publicados en años pares.\n7 - Listar todos los juego de Nintendo.\n8 - Listar todos los juegos con mayor media de ventas.\n9 - Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo.\n0 - Salir.")
                     opcion = input("Introduce una opción: ")
                     
                     match opcion:
@@ -45,7 +45,7 @@ def menu():
                             break
                         
                         case "3":
-                            print(Listado.listado_juegos_genero())
+                            print(Listado.listado_plataformas())
                             break
 
                         case "4":
@@ -68,6 +68,9 @@ def menu():
                             print()
                             break
                         
+                        case "9":
+                            print()
+
                         case "0":
                             break
 
@@ -80,4 +83,7 @@ def menu():
             case _:
                 print("No has elegido una opción correcta.")
 
-menu()
+def main():
+    menu()
+
+main()
