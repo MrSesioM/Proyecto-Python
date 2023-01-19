@@ -62,7 +62,7 @@ def menu_testing():  #Accede al menu de testeo (solo admin)
                     case "2":
                         os.system("cls")
                         print("MODO TESTING\n")
-                        os.system(r"python -m unittest C:\Users\Varito\Documents\Proyecto\_ttests\_test_introduce_datos.py")
+                        os.system(r"python -m unittest C:\Users\Varito\Documents\Proyecto\_ttests\_ttest_introduce_datos.py")
                         time.sleep(3)
                         volver_menu()
 
