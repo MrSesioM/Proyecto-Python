@@ -80,10 +80,10 @@ def volver_menu_guardar():
                     case "y":
                         os.system("cls")
                         Tablas.blanco()
-                        with open("vgsales.csv", "w") as f:
+                        with open("vgsales(1).csv", "w") as f:
                             writer = csv.writer(f)
                             for juego in Gestiones.lista:
-                                with open("vgsales.csv", "a") as f2:
+                                with open("vgsales(1).csv", "a") as f2:
                                     writer2 = csv.writer(f)
                                     writer2.writerow(juego)
                         print("Guardando...")
