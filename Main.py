@@ -152,8 +152,12 @@ def menu():
                             volver_menu_guardar()
                      
                         case "3":
-                            Tablas.tabla(Gestiones.eliminar_juegos(),header)
-                            volver_menu_guardar()
+                            
+                            if Gestiones.eliminar_juegos() == False:
+                                volver_menu()
+                            else:   
+                                Tablas.tabla(Gestiones.eliminar_juegos(),header)
+                                volver_menu_guardar()
 
                         case "0":
                             os.system("cls")
@@ -191,7 +195,6 @@ def menu():
                             volver_menu()
 
                         case "2":
-                        
                             Tablas.tabla_lista_editores()
                             volver_menu() 
                         
@@ -218,7 +221,6 @@ def menu():
 
                         case "8":
                             Tablas.tabla_ventas_encima_media()
-                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
                             volver_menu()
 
                         case "9":

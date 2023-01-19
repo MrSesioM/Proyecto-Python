@@ -190,19 +190,19 @@ def editar_juegos():
                             juego[5] = comprobacion(desarrolladora,"Publisher",0)[0]
 
                         case "na_sales":
-                            juego[6] = ventas()
+                            juego[6] = ventas("na_sales")
                         
                         case "eu_sales":
-                            juego[7] = ventas()
+                            juego[7] = ventas("eu_sales")
 
                         case "jp_sales":
-                            juego[8] = ventas()
+                            juego[8] = ventas("jp_sales")
 
                         case "other_sales":
-                            juego[9] = ventas()
+                            juego[9] = ventas("other_sales")
 
                         case "global_sales":
-                            juego[10] = ventas()
+                            juego[10] = ventas("global_sales")
                         
                         case "0":
                             break
@@ -228,7 +228,7 @@ def eliminar_juegos():
     
     while True:
         
-        juegos_eliminar = input("[Pulse 0 para salir]\nQue juego quieres eliminar: ")
+        juegos_eliminar = input("\n[Pulse 0 para salir]\nQue juego quieres eliminar: ")
         if juegos_eliminar == "0":
             return False
         plataforma_juegos = input("De que plataforma es tu juego: ")
