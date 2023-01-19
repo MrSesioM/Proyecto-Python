@@ -257,7 +257,7 @@ def menu(): #Muestra unas opciones para realizar tareas especificas sobre lista
                 time.sleep(2)
                 os.system("cls")
                        
-def main(): #Funcion main()-->llama a menu()     
+def main(): #Funcion main()-->llama a menu()
     menu()
 
 
