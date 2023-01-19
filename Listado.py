@@ -1,4 +1,4 @@
-import Gestiones
+import Gestiones, tabulate, Tablas
 
 
 
@@ -23,19 +23,30 @@ def listado_juegos_plataformas():
             juegos_plataforma.append(juego[1])
     return juegos_plataforma
 
+def tabla(lista,header): #Crea una tabla a partir de una estructura de listas
 
-def cinco_juegos_mas_vendidos():
-    
+    Tablas.naranja()
+    menu=[lista]
+    print(tabulate(menu,header,stralign="center",tablefmt="fancy_grid"))
+
+def cinco_juegos_mas_vendidos(): #Devuelve una lista con los 5 jeugos mas vendidos
+
     lista_juegos_vendidos = []
     cinco_juegos_vendidos = []
 
     for ventas in Gestiones.lista:
         lista_juegos_vendidos.append(ventas)
-    
+
     lista_juegos_vendidos.sort(key=lambda x: x[10], reverse=True) # Ordenar la lista de juegos de mayor a menor
-    lista_juegos_vendidos.remove(lista_juegos_vendidos[0])
-    
+
     for i in range(5):     # Imprimir los 5 juegos más vendidos
         cinco_juegos_vendidos.append(lista_juegos_vendidos[i])
-    
+
     return cinco_juegos_vendidos
+
+def listado_generos():
+    lista_generos = []
+    for juego in Gestiones.lista:
+        if (juego[4] not in lista_generos):
+            lista_generos.append(juego[4])
+    return lista_generos

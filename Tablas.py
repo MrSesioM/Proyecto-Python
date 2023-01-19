@@ -37,6 +37,55 @@ def tabla_cinco_juegos_mas_vendidos(): #Crear una tabla de los 5 juegos mas vend
     for juego in Listado.cinco_juegos_mas_vendidos():
         tabla(juego,header)
 
+def tabla_juegos_anios_par():
+    juegos_anio_par = []
+    for juego in Gestiones.lista:
+        if (juego[3] != "N/A"):
+            if (int(juego[3]) % 2 == 0):
+                juegos_anio_par.append(juego)
+
+    for juego in juegos_anio_par:
+        tabla(juego,"")
+
+def tabla_juegos_siglo_XX():
+    juegos_siglo_XX = []
+    for juego in Gestiones.lista:
+        if (juego[3] != "N/A"):
+            if (int(juego[3]) > 1950 and int(juego[3]) < 2000):
+                juegos_siglo_XX.append(juego)
+
+    for juego in juegos_siglo_XX:
+        tabla(juego,"")
+
+def media_ventas_total():
+    suma_ventas = 0
+    for juego in Gestiones.lista:
+        suma_ventas += float(juego[10])
+    return round(suma_ventas / len(Gestiones.lista), 2)
+
+def tabla_ventas_encima_media():
+    juego_encima_media = []
+    media_ventas = media_ventas_total()
+    for juego in Gestiones.lista:
+        if (float(juego[10]) > media_ventas):
+            juego_encima_media.append(juego)
+
+    for juego in juego_encima_media:
+        tabla(juego,"")
+
+def tabla_juegos_por_genero():
+    genero = ""
+    while (genero not in Listado.listado_generos()):
+        genero = input(f"Introduce el género ({Listado.listado_generos()}: ")
+    else:
+        juegos_genero = []
+        for juego in Gestiones.lista:
+            if (genero == juego[4]):
+                juegos_genero.append(juego)
+
+    for juego in juegos_genero:
+        tabla(juego,"")
+
 def naranja():
     print("\033[33m")
 
