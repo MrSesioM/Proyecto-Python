@@ -20,3 +20,18 @@ def listado_plataformas():
             juegos_plataforma.append(juego[1])
     return juegos_plataforma
 
+# Devuelve el listado de los distintos tipos de géneros que hay
+def listado_generos():
+    lista_generos = []
+    for juego in Gestiones.lista:
+        if (juego[4] not in lista_generos):
+            lista_generos.append(juego[4])
+    return lista_generos
+
+# Devuelve el listado de las plataformas que hay
+def listado_consolas():
+    lista_consolas = []
+    for juego in Gestiones.lista:
+        if (juego[2] not in lista_consolas):
+            lista_consolas.append(juego[2])
+    return lista_consolas

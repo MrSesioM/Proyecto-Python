@@ -1,4 +1,4 @@
-import Listado,Gestiones
+import Listado,Gestiones,os
 
 def menu():
     while True:
@@ -17,14 +17,15 @@ def menu():
                             break
 
                         case "2":
-                            print()
+                            print(Gestiones.editar_juego())
                             break
                         
                         case "3":
-                            print()
+                            print(Gestiones.eliminar_juego())
                             break
 
                         case "0":
+                            os.system("cls")
                             break
                         
                         case _:
@@ -49,6 +50,7 @@ def menu():
                             break
 
                         case "0":
+                            os.system("cls")
                             break
 
                         case _:
