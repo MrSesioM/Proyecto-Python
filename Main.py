@@ -73,8 +73,8 @@ def menu():
                             volver_menu()
                      
                         case "3":
-                            print("\nEn Desarollo")
-                            volver_menu()
+                            Gestiones.eliminar_juegos()
+                            break
 
                         case "0":
                             os.system("cls")
