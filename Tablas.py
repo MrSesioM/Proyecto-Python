@@ -73,6 +73,7 @@ def tabla_ventas_encima_media():
     for juego in juego_encima_media:
         tabla(juego,"")
 
+
 def tabla_juegos_por_genero():
     genero = ""
     while (genero not in Listado.listado_generos()):
@@ -83,8 +84,12 @@ def tabla_juegos_por_genero():
         if (genero == juego[4]):
             juegos_genero.append(juego)
 
-    for juego in juegos_genero:
-        tabla(juego,"")
+def listado_generos():
+    lista_generos = []
+    for juego in Gestiones.lista:
+        if (juego[4] not in lista_generos):
+            lista_generos.append(juego[4])
+    return lista_generos
 
 def naranja():
     print("\033[33m")
