@@ -80,10 +80,7 @@ def menu():
                         ["[0]", "Volver"]]
                     print(tabulate.tabulate(menu, headers=[" *","Mostrar informes"], tablefmt="fancy_grid"))
     
-<<<<<<< HEAD
                    
-=======
->>>>>>> d463f11f3ffc107a9e03e205625dad629e9d5dee
                     opcion = input("\nIntroduce una opción: ")
                     
                     match opcion:
@@ -101,19 +98,18 @@ def menu():
                             volver_menu()
                         
                         case "4":
-<<<<<<< HEAD
-                            Listado.juegos_por_genero()
+                            Tablas.tabla_juegos_por_genero()
                             #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
                             volver_menu()
                         
                     
                         case "5":
-                            Listado.juegos_siglo_XX()
+                            Tablas.tabla_juegos_siglo_XX()
                             #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
                             volver_menu()
 
                         case "6":
-                            Listado.juegos_anios_par()
+                            Tablas.tabla_juegos_anios_par()
                             #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
                             volver_menu()
 
@@ -122,7 +118,7 @@ def menu():
                             volver_menu()
 
                         case "8":
-                            Listado.ventas_encima_media()
+                            Tablas.tabla_ventas_encima_media()
                             #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
                             volver_menu()
 
@@ -130,31 +126,6 @@ def menu():
                             Tablas.tabla_cinco_juegos_mas_vendidos()
                             volver_menu()
 
-=======
-                            print("\nEn Desarollo")
-                            volver_menu()
-                        
-                    
-                        case "5":
-                            print("\nEn Desarollo")
-                            volver_menu()
-                        
-                        case "6":
-                            print("\nEn Desarollo")
-                            volver_menu()
-                        
-                        case "7":
-                            print("\nEn Desarollo")
-                            volver_menu()
-                        
-                        case "8":
-                            print("\nEn Desarollo")
-                            volver_menu()
-                        
-                        case "9":
-                            Tablas.tabla_cinco_juegos_mas_vendidos()
-                            volver_menu()
->>>>>>> d463f11f3ffc107a9e03e205625dad629e9d5dee
                         case "0":
                             os.system("cls")
                             break
