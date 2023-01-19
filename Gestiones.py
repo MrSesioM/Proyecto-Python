@@ -251,4 +251,4 @@ def eliminar_juegos():
                                 os.system("cls")
                                 return False     
 
-leer_csv('vgsales.csv')
+leer_csv('vgsales(1).csv')
