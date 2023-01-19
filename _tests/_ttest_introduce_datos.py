@@ -21,10 +21,9 @@ class Test_Utils(unittest.TestCase):
                 elif i>=7:
                     lista.append(random.randint(0,10))
 
-            print(f"{contador}.Probando lista --> {lista}")         
+            print("Probando lista -->" ,lista)         
             
-            
-            self.assertEquals(Gestiones.lista[contador], lista)
+            self.assertEqual(Gestiones.lista[contador], lista)
 
 
 if __name__ == '__main__':
