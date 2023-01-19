@@ -24,7 +24,7 @@ def menu_testing():
                     case "1":
                         os.system("cls")
                         print("MODO TESTING\n")
-                        filePath= r"python -m unittest C:\Users\Varito\Documents\Proyecto\_tests\_test_proyecto.py"
+                        filePath= r"python -m unittest ...\_tests\_test_proyecto.py"
                         os.system(filePath)
                         time.sleep(3)
                         volver_menu()
