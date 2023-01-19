@@ -24,11 +24,6 @@ def listado_juegos_plataformas():
     
     return juegos_plataforma
 
-def tabla(lista,header): #Crea una tabla a partir de una estructura de listas
-
-    Tablas.naranja()
-    menu=[lista]
-    print(tabulate(menu,header,stralign="center",tablefmt="fancy_grid"))
 
 def cinco_juegos_mas_vendidos(): #Devuelve una lista con los 5 jeugos mas vendidos
 

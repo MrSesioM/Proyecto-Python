@@ -137,7 +137,7 @@ def menu():
                             volver_menu()
 
                         case "7":
-                            print("\nEn Desarollo")
+                            Tablas.tabla_juegos_nitendo()
                             volver_menu()
 
                         case "8":
