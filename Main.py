@@ -90,7 +90,7 @@ def volver_menu_guardar():
                         time.sleep(1)
                         print("Saliendo...")
                         time.sleep(1)
-                        menu()
+                        sys.exit()
                         
                     case "n":
                         os.system("cls")
