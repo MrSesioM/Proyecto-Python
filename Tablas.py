@@ -31,6 +31,65 @@ def tabla_juegos_plataforma(): #Crear una tabla de listado_juegos_plataformas()
     for lista in lista_plataformas:
         tabla(lista,"")
 
+def tabla_cinco_juegos_mas_vendidos(): #Crear una tabla de los 5 juegos mas vendidos
+    header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
+    for juego in Listado.cinco_juegos_mas_vendidos():
+        tabla(juego,header)
+
+def tabla_juegos_anios_par():
+    juegos_anio_par = []
+    for juego in Gestiones.lista:
+        if (juego[3] != "N/A"):
+            if (int(juego[3]) % 2 == 0):
+                juegos_anio_par.append(juego)
+
+    for juego in juegos_anio_par:
+        tabla(juego,"")
+
+def tabla_juegos_siglo_XX():
+    juegos_siglo_XX = []
+    for juego in Gestiones.lista:
+        if (juego[3] != "N/A"):
+            if (int(juego[3]) > 1950 and int(juego[3]) < 2000):
+                juegos_siglo_XX.append(juego)
+
+    for juego in juegos_siglo_XX:
+        tabla(juego,"")
+
+def media_ventas_total():
+    suma_ventas = 0
+    for juego in Gestiones.lista:
+        suma_ventas += float(juego[10])
+    return round(suma_ventas / len(Gestiones.lista), 2)
+
+def tabla_ventas_encima_media():
+    juego_encima_media = []
+    media_ventas = media_ventas_total()
+    for juego in Gestiones.lista:
+        if (float(juego[10]) > media_ventas):
+            juego_encima_media.append(juego)
+
+    for juego in juego_encima_media:
+        tabla(juego,"")
+
+
+def tabla_juegos_por_genero():
+    genero = ""
+    while (genero not in Listado.listado_generos()):
+        genero = input(f"Introduce el género ({Listado.listado_generos()}: ")
+        
+    juegos_genero = []
+    for juego in Gestiones.lista:
+        if (genero == juego[4]):
+            juegos_genero.append(juego)
+
+def listado_generos():
+    lista_generos = []
+    for juego in Gestiones.lista:
+        if (juego[4] not in lista_generos):
+            lista_generos.append(juego[4])
+    return lista_generos
+
 def naranja():
     print("\033[33m")
 
@@ -39,3 +98,9 @@ def verde():
     
 def blanco():
     print("\033[1;37;40m")
+
+def rojo():
+    print("\033[1;31;40m")
+
+def morado():
+    print("\033[35m")
