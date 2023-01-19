@@ -92,6 +92,8 @@ def tabla_juegos_por_genero():
     for juego in Gestiones.lista:
         if (genero == juego[4]):
             juegos_genero.append(juego)
+    for juego in juegos_genero:
+        tabla(juego,"")
 
 def listado_generos():
     lista_generos = []
