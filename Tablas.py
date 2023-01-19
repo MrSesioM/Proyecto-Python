@@ -31,6 +31,16 @@ def tabla_juegos_plataforma(): #Crear una tabla de listado_juegos_plataformas()
     for lista in lista_plataformas:
         tabla(lista,"")
 
+def tabla_juegos_nitendo():
+    lista_nintendo = []
+    header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
+    for juegos in Listado.listado_juegos_nintendo():
+        lista_nintendo.append([juegos])
+    
+    for lista in lista_nintendo:
+        tabla(lista,"")
+
+
 def naranja():
     print("\033[33m")
 

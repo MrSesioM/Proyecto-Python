@@ -36,7 +36,7 @@ def menu():
                 os.system("cls")
                 while True:
     
-                    menu = [["1", "Dar de alta un juego"], ["0", "Volver"]]
+                    menu = [["1", "Dar de alta un juego"],["3","Eliminar un juego."],["0", "Volver"]]
                     print(tabulate.tabulate(menu, headers=[" *","Gestionar juegos"], tablefmt="fancy_grid"))
                     #[2] |Editar un juego.      |\n
                     #[3] |Eliminar un juego.    |\n
@@ -53,7 +53,7 @@ def menu():
                             break
                      
                         case "3":
-                            print()
+                            Gestiones.eliminar_juegos()
                             break
 
                         case "0":
@@ -69,7 +69,7 @@ def menu():
                 os.system("cls")
                 while True:
     
-                    menu = [["1", "Listar todos los juegos "], ["2", "Listar todos los editores"], ["3", "Listar todos los juegos del género 'Plataformas'"], ["0", "Volver"]]
+                    menu = [["1", "Listar todos los juegos "], ["2", "Listar todos los editores"], ["3", "Listar todos los juegos del género 'Plataformas'"],["7", "Listar todos los juego de Nintendo."],["0", "Volver"]]
                     print(tabulate.tabulate(menu, headers=[" *","Mostrar informes"], tablefmt="fancy_grid"))
     
                     #[4] |Listar todos los juegos filtrados por género.                                |\n
@@ -92,6 +92,9 @@ def menu():
                         
                         case "3":
                             Tablas.tabla_juegos_plataforma()
+                            volver_menu()
+                        case "7":
+                            Tablas.tabla_juegos_nitendo()
                             volver_menu()
 
                         case "0":
