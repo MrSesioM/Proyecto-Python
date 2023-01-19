@@ -1,6 +1,6 @@
 import Listado, Gestiones, os, time, sys, tabulate, Tablas, csv
 
-def guardar_cambios():
+def guardar_cambios():  #Guarda los cambios de lista en un fichero
 
     opcion_guardar = input("\n¿Quieres guardar los cambios? Y/N: ")
     match opcion_guardar:
@@ -32,8 +32,7 @@ def guardar_cambios():
             print("\nNo has elegido una opción correcta.")
             Tablas.blanco()
 
-
-def testing():
+def testing():  #Funcion par acceder a menu_testinf() segun unas condiciones
     import getpass
     os.system("cls")
     Tablas.morado()
@@ -46,7 +45,7 @@ def testing():
         time.sleep(2)
         os.system("cls")
 
-def menu_testing():
+def menu_testing():  #Accede al menu de testeo (solo admin) 
     
     os.system("cls")
     while True:
@@ -76,7 +75,7 @@ def menu_testing():
                         time.sleep(2)
                         os.system("cls")
                 
-def volver_menu():
+def volver_menu():  #Llama a la funcion menu()
     while True:
         Tablas.blanco()
         opcion = input("\n¿Quieres volver al menu? Y/N: ")
@@ -100,7 +99,7 @@ def volver_menu():
                 print("\nNo has elegido una opción correcta.")
                 Tablas.blanco()
 
-def volver_menu_guardar():
+def volver_menu_guardar():  #Llama a la funcion menu() pero incluyendo la funcion guardar_cambios()
     while True:
         Tablas.blanco()
         opcion = input("\n¿Quieres volver al menu? Y/N: ")
@@ -125,7 +124,7 @@ def volver_menu_guardar():
                 print("\nNo has elegido una opción correcta.")
                 Tablas.blanco()
 
-def menu():
+def menu(): #Muestra unas opciones para realizar tareas especificas sobre lista
     os.system("cls")
     while True:
         Tablas.verde()
@@ -257,9 +256,9 @@ def menu():
                 Tablas.blanco()
                 time.sleep(2)
                 os.system("cls")
-       
-                  
-def main():         
+                       
+def main(): #Funcion main()-->llama a menu()     
     menu()
+
 
 main()

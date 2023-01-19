@@ -1,10 +1,8 @@
 import csv,os,Listado,time,Tablas
 
-
 lista=[]
-#Carga el fichero csv en la lista
 
-def leer_csv(archivo):
+def leer_csv(archivo):  #Carga el fichero csv en la lista
 
     with open(archivo) as juegos:
 
@@ -15,8 +13,7 @@ def leer_csv(archivo):
         for row in reader:
             lista.append(row)
 
-# Compruebo si la plataforma, el género o el desarrollador ya existen o no, y si queremos añadir uno nuevo
-def comprobacion(datos,pregunta,i):
+def comprobacion(datos,pregunta,i): # Compruebo si la plataforma, el género o el desarrollador ya existen o no, y si queremos añadir uno nuevo
 
     while True:
         try:
@@ -52,8 +49,7 @@ def comprobacion(datos,pregunta,i):
             break
     return datos
 
-# Compruebo si se introduce un número válido en las ventas o si queremos dejarlo en blanco
-def ventas(continente):
+def ventas(continente): # Compruebo si se introduce un número válido en las ventas o si queremos dejarlo en blanco
     while True:
         try:
             ventas = input(f"Introduce el nº de ventas de {continente} (en millones) (dejar en blanco si se desconoce): ")
@@ -66,9 +62,7 @@ def ventas(continente):
         except ValueError:
             print("No has introducido un número válido.")
         
-
-# Funcion auxiliar par pedir datos
-def introduce_datos():
+def introduce_datos():  # Funcion auxiliar par pedir datos
     datos = []
     lista_preguntas = ['Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
     floats = ['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales']
@@ -121,13 +115,12 @@ def introduce_datos():
 
     return datos
 
-# Carga juegos en la lista con los datos obtenidos en la funcion introduce_datos
-def alta_juegos():
+def alta_juegos():  # Carga juegos en la lista con los datos obtenidos en la funcion introduce_datos
     juego=introduce_datos()
     lista.append(juego)
     return juego
 
-def editar_juegos():
+def editar_juegos():    # Edita juegos en la lista
     header = ['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
     while True:
         nombre = input("\nEscribe el juego que quiere editar (0 para salir): ")
@@ -224,8 +217,8 @@ def editar_juegos():
         else:
             print("\nHas hecho cambios en este juego:\n")
             return juego
-def eliminar_juegos():
-    
+        
+def eliminar_juegos():  #Elimina en la lista un juego
     while True:
         
         juegos_eliminar = input("\n[Pulse 0 para salir]\nQue juego quieres eliminar: ")
@@ -247,8 +240,4 @@ def eliminar_juegos():
                     print("\nEl siguiente juego no ha sido eliminado")             
                     return i
            
-
-          
-
-
 leer_csv('vgsales.csv')
