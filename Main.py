@@ -43,7 +43,7 @@ def menu():
                     match opcion:
                         case "1":
                             print(Gestiones.alta_juegos())
-                            volver_menu()
+                            volver_menu(b)
 
                         case "2":
                             print()
