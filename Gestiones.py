@@ -115,7 +115,7 @@ def introduce_datos():
             else:
                 datos.append(input(f"Introduce el {lista_preguntas[i]}: "))
                 break
-    rank = len(lista) + 2
+    rank = len(lista) + 3
     datos.insert(0, rank)
     os.system("cls")
 
@@ -225,27 +225,31 @@ def editar_juegos():
             print("\nHas hecho cambios en este juego:\n")
             return juego
 def eliminar_juegos():
-    salir = True
-    while salir:
-        juegos_eliminar = input("Que juego quieres eliminar: ")
-        plataforma_juegos = input("De que plataforma es tu juego: ")
-        for i in lista:
+    
+    while True:
+            
+            juegos_eliminar = input("[Pulse 0 para salir]\n Que juego quieres eliminar: ")
+            if juegos_eliminar == "0":
+                    return False
+            plataforma_juegos = input("De que plataforma es tu juego: ")
+
+            for i in lista:       
                 if juegos_eliminar.lower() == i[1].lower() and plataforma_juegos.lower() == i[2].lower():
-                    confirmacion = input("Estas seguro Y/N: ")
+                        confirmacion = input("Estas seguro Y/N: ")   
+                        if confirmacion == "y":
+                                lista.remove(i)
+                                os.system("cls")
+                                print("Has eliminado el juego\n",i)
+                                time.sleep(2)
+                                os.system("cls")
+                                return False
 
-                    if confirmacion == "y":
-                            lista.remove(i)
-                            os.system("cls")
-                            print("Has eliminado el juego\n",i)
-                            time.sleep(2)
-                            os.system("cls")
-                            salir = False
+                        elif confirmacion == "n":
+                                os.system("cls") 
+                                print("No has eliminado ningun juego")
+                                time.sleep(2)
+                                os.system("cls")
+                                return False     
 
-                    elif confirmacion == "n":
-                            os.system("cls") 
-                            print("No has eliminado ningun juego")
-                            time.sleep(2)
-                            os.system("cls")
-                            salir = False
 
 leer_csv('vgsales.csv')
