@@ -1,4 +1,4 @@
-import Gestiones,tabulate
+import Gestiones
 
 
 
@@ -23,39 +23,23 @@ def listado_juegos_plataformas():
             juegos_plataforma.append(juego[1])
     return juegos_plataforma
 
-#def ordenar_listas(lista):
-   # for i in lista:
-    #    print(f"Rank: {i[j]}, Nombre: {i[j+1]}, Plataforma: {i[2]}, Año: {i[3]}, Genero: {i[4]}, Publisher: {i[5]}, Ventas NA: {i[6]}, Ventas EU: {i[7]}, Ventas JP: {i[8]}, Otras ventas: {i[9]}, Ventas global: {i[10]}")
-        
 
-def tabla(lista,header): #Crea una tabla a partir de una estructura de listas
+def cinco_juegos_mas_vendidos():
     
-    naranja()
-    menu=[lista]
-    print(tabulate.tabulate(menu,header,stralign="center",tablefmt="fancy_grid"))
+    lista_juegos_vendidos = []
+    cinco_juegos_vendidos = []
 
 
-def tabla_lista_juegos(): #Crea una tabla a de listado_juegos
+    for ventas in Gestiones.lista:
+        lista_juegos_vendidos.append(ventas)
     
-    header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
-    for juego in Gestiones.lista:
-        tabla(juego,header)
-
-def tabla_lista_editores(): #Crea una tabla de listado_editores
-
-    lista_editores = []
-    for editor in listado_editores():
-        lista_editores.append([editor])
+    lista_juegos_vendidos.sort(key=lambda x: x[10], reverse=True) # Ordenar la lista de juegos de mayor a menor
+    lista_juegos_vendidos.remove(lista_juegos_vendidos[0])
     
-    for lista in lista_editores:
-        tabla(lista,"")
-
-def tabla_juegos_plataforma(): #Crear una tabla de listado_juegos_plataformas()
-
-    lista_plataformas = []
-    for juegos in listado_editores():
-        lista_plataformas.append([juegos])
+    for i in range(5):     # Imprimir los 5 juegos más vendidos
+        cinco_juegos_vendidos.append(lista_juegos_vendidos[i])
     
+<<<<<<< HEAD
     for lista in lista_plataformas:
         tabla(lista,"")
 
@@ -123,3 +107,6 @@ def verde():
     
 def blanco():
     print("\033[1;37;40m")
+=======
+    return cinco_juegos_vendidos
+>>>>>>> d463f11f3ffc107a9e03e205625dad629e9d5dee
