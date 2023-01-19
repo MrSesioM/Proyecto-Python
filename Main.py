@@ -1,8 +1,4 @@
-import Listado,Gestiones, os, time, sys, tabulate
-
-
-
-
+import Listado,Gestiones, os, time, sys, Tablas, tabulate
 
 
 def volver_menu():
@@ -11,13 +7,13 @@ def volver_menu():
         match opcion:
             case "y":
                 os.system("cls")
-                Listado.blanco()
+                Tablas.blanco()
                 print("Volviendo al menu...")
                 time.sleep(1)
                 menu()
             case "n":
                 os.system("cls")
-                Listado.blanco()
+                Tablas.blanco()
                 print("Saliendo...")
                 time.sleep(1)
                 os.system("cls")
@@ -31,7 +27,7 @@ def volver_menu():
 def menu():
     os.system("cls")
     while True:
-        Listado.verde()
+        Tablas.verde()
         menu = [["1", "Gestionar juegos"], ["2", "Mostrar informes"], ["0", "Salir"]]
         print(tabulate.tabulate( menu, headers=[" *","OPCIONES"],tablefmt="fancy_grid"))
         opcion = input("\nIntroduce la tarea que quieras realizar: ")
@@ -86,19 +82,16 @@ def menu():
                     
                     match opcion:
                         case "1":
-                            Listado.tabla_lista_juegos()
-                            #Listado.ordenar_listas(Listado.listado_juegos())
+                            Tablas.tabla_lista_juegos()
                             volver_menu()
 
                         case "2":
                         
-                            Listado.tabla_lista_editores()
-                            #Listado.listado_editores()
+                            Tablas.tabla_lista_editores()
                             volver_menu() 
                         
                         case "3":
-                            Listado.tabla_juegos_plataforma()
-                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            Tablas.tabla_juegos_plataforma()
                             volver_menu()
 
                         case "0":
@@ -112,7 +105,7 @@ def menu():
 
             case "0":
                 os.system("cls")
-                Listado.blanco()
+                Tablas.blanco()
                 print("Saliendo...")
                 time.sleep(1)
                 os.system("cls")
