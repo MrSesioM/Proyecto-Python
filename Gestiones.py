@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import csv,os,Listado
+=======
+import csv, os, time
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
 
 
 lista=[]
@@ -86,8 +90,13 @@ def introduce_datos():
             elif lista_preguntas[i] == "Year":
                 try:
                     datos.append(int(input(f"Introduce el {lista_preguntas[i]}: ")))
+<<<<<<< HEAD
                     assert datos[i] >= 1958 and datos[i] <= 2023, "El año de lanzamiento tiene que estar entre 1958 y 2023."
 
+=======
+                    assert datos[i] >= 1958, "No puedes introducir un año menor a 1958."
+                
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
                 except ValueError:
                     print("No has introducido un número válido")
                 except AssertionError as error:
@@ -95,6 +104,7 @@ def introduce_datos():
                     datos.pop()
                 else:
                     break
+<<<<<<< HEAD
             # Compruebo si se introduce un dato válido en Genre, Publisher o Platform y añadir la posibilidad de crear uno nuevo en caso de que no exista
             elif lista_preguntas[i] == "Platform":
                 comprobacion(datos,lista_preguntas[i],i)
@@ -111,6 +121,25 @@ def introduce_datos():
             elif lista_preguntas[i] in floats:
                 datos.append(ventas())
                 break
+=======
+            # Compruebo si se introduce un dato válido en Genre o Publisher (que no sea un número o un float, tiene que contener caracteres)
+            elif lista_preguntas[i] =='Genre' or 'Publisher' :
+                try:
+                    datos.append(input(f"Introduce el {lista_preguntas[i]}: "))
+                    datos[i] = float(datos[i])
+                except ValueError:
+                    break
+                else:
+                    print("No puedes introducir solamente un número.")
+                    datos.pop()
+            # Compruebo si se introduce 
+            elif lista_preguntas[i] in floats:
+                try:
+                    datos.append(float(input(f"Introduce el {lista_preguntas[i]}: ")))            
+                    print("No has introducido un número válido")
+                except:
+                    break
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
             else:
                 datos.append(input(f"Introduce el {lista_preguntas[i]}: "))
                 break
@@ -124,6 +153,7 @@ def introduce_datos():
 def alta_juegos():
     juego=introduce_datos()
     lista.append(juego)
+<<<<<<< HEAD
     salida = ("Nombre del juego: ","Plataforma: ","Año de lanzamiento: ","Género: ","Desarrolladora: ","Nº de ventas en América del Norte (en millones): ","Nº de ventas en Europa (en millones): ","Nº de ventas en Japón (en millones): ","Nº de ventas en otros países (en millones): ","Nº de ventas globales (en millones): ")
     resultado = ""
     for i in range(len(salida)):
@@ -230,3 +260,42 @@ def editar_juego():
 
 
 leer_csv('vgsales.csv')
+=======
+    return lista[len(lista)-1]
+
+# La funcion elimina los juegos de la lista comprobando el nombre del juego y la plataforma 
+def eliminar_juegos():
+    salir = True
+    while salir:
+        juegos_eliminar = input("Que juego quieres eliminar: ")
+        plataforma_juegos = input("De que plataforma es tu juego: ")
+        for i in lista:
+                if juegos_eliminar.lower() == i[1].lower() and plataforma_juegos.lower() == i[2].lower():
+                    confirmacion = input("Estas seguro Y/N: ")
+
+                    if confirmacion == "y":
+                            lista.remove(i)
+                            os.system("cls")
+                            print("Has eliminado el juego\n",i)
+                            time.sleep(2)
+                            os.system("cls")
+                            salir = False
+
+                    elif confirmacion == "n":
+                            os.system("cls") 
+                            print("No has eliminado ningun juego")
+                            time.sleep(2)
+                            os.system("cls")
+                            salir = False
+                            
+                    
+                
+
+
+leer_csv('vgsales.csv')
+#introduce_datos()
+
+
+       
+
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522

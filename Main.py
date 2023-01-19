@@ -1,27 +1,112 @@
+<<<<<<< HEAD
 import Listado,Gestiones,os
+=======
+import Listado, Gestiones, os, time, sys, tabulate, Tablas
+
+def testing():
+    import getpass
+    os.system("cls")
+    Tablas.morado()
+    password=getpass.getpass("Has entrado en el modo testing...\n\nIntroduce la password: ")
+    if(password == "testing"):
+        menu_testing()
+    else:
+        Tablas.rojo()
+        print("\nPassword incorrecta!")
+        time.sleep(2)
+        os.system("cls")
+
+def menu_testing():
+    
+    os.system("cls")
+    while True:
+        menu_test = [["[1]", "Ejecutar pruebas"],["[0]", "Salir"]]
+        print(tabulate.tabulate(menu_test, headers=[" *","MODO TESTING "], tablefmt="fancy_grid"))
+        opcion = input("\nIntroduce una opción: ")
+        match opcion:
+                    case "1":
+                        os.system("cls")
+                        print("MODO TESTING\n")
+                        filePath= r"python -m unittest C:\Users\Varito\Documents\Proyecto\_tests\_test_proyecto.py"
+                        os.system(filePath)
+                        time.sleep(3)
+                        volver_menu()
+                    case "0":
+                        os.system("cls")    
+                        volver_menu()
+                    case _:
+                        Tablas.rojo()
+                        print("\nNo has elegido una opción correcta.")
+                        Tablas.morado()
+                        time.sleep(2)
+                        os.system("cls")
+                
+
+
+
+def volver_menu():
+    while True:
+        Tablas.blanco()
+        opcion = input("\n¿Quieres volver al menu? Y/N: ")
+        match opcion:
+            case "y":
+                os.system("cls")
+                Tablas.blanco()
+                print("Volviendo al menu...")
+                time.sleep(1)
+                menu()
+            case "n":
+                os.system("cls")
+                Tablas.blanco()
+                print("Saliendo...")
+                time.sleep(1)
+                os.system("cls")
+                sys.exit()
+
+            case _:
+                Tablas.rojo()
+                print("\nNo has elegido una opción correcta.")
+                Tablas.blanco()
+
+
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
 
 def menu():
+    os.system("cls")
     while True:
-        print("\na - Gestionar juegos.\nb - Mostar informes.\n0 - Salir.")
-        opcion = input("Introduce la tarea que quieras realizar: ")
-        
+        Tablas.verde()
+        menu = [["[1]", "Gestionar juegos"], ["[2]", "Mostrar informes"], ["[0]", "Salir"]]
+        print(tabulate.tabulate(menu, headers=[" *","OPCIONES"],tablefmt="fancy_grid"))
+        opcion = input("\nIntroduce la tarea que quieras realizar: ")
         match opcion:
-            case "a":
+            case "1":
+                os.system("cls")
                 while True:
-                    print("\n1 - Dar de alta un juego.\n2 - Editar un juego.\n3 - Eliminar un juego.\n0 - Volver.")
-                    opcion = input("Introduce una opción: ")
+    
+                    menu = [["[1]", "Dar de alta un juego"],["[2]", "Editar un juego"],["[3]","Eliminar un juego"],["[0]", "Volver"]]
+                    print(tabulate.tabulate(menu, headers=[" *","Gestionar juegos"], tablefmt="fancy_grid"))
+
+                    opcion = input("\nIntroduce una opción: ")
                     
                     match opcion:
                         case "1":
                             print(Gestiones.alta_juegos())
-                            break
+                            volver_menu()
 
                         case "2":
+<<<<<<< HEAD
                             print(Gestiones.editar_juego())
                             break
                         
                         case "3":
                             print(Gestiones.eliminar_juego())
+=======
+                            print("\nEn Desarollo")
+                            volver_menu()
+                     
+                        case "3":
+                            Gestiones.eliminar_juegos()
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
                             break
 
                         case "0":
@@ -29,40 +114,113 @@ def menu():
                             break
                         
                         case _:
-                            print("No has introducido una opción correcta.")
+                            Tablas.rojo()
+                            print("\nNo has elegido una opción correcta.")
+                            Tablas.blanco()
+                            time.sleep(2)
+                            os.system("cls")
             
-            case "b":
+            case "2":
+                os.system("cls")
                 while True:
-                    print("\n1 - Listar todos los juegos.\n2 - Listar todos los editores.\n3 - Listar todos los juegos del género 'Plataformas'.\n4 - Listar todos los juegos filtrados por género.\n5 - Listar todos los juegos del siglo XX.\n6 - Listar todos los juegos publicados en años pares.\n7 - Listar todos los juego de Nintendo.\n8 - Listar todos los juegos con mayor media de ventas.\n9 - Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo.\n0 - Salir.")
-                    opcion = input("Introduce una opción: ")
+    
+                    menu = [["[1]", "Listar todos los juegos "], 
+                        ["[2]", "Listar todos los editores"], 
+                        ["[3]", "Listar todos los juegos del género 'Plataformas'"],
+                        ["[4]","Listar todos los juegos filtrados por género"],
+                        ["[5]","Listar todos los juegos del siglo XX"],
+                        ["[6]","Listar todos los juegos publicados en años pares"],
+                        ["[7]","Listar todos los juego de Nintendo"],
+                        ["[8]","Listar todos los juegos con mayor media de ventas"],
+                        ["[9]","Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo"], 
+                        ["[0]", "Volver"]]
+                    print(tabulate.tabulate(menu, headers=[" *","Mostrar informes"], tablefmt="fancy_grid"))
+    
+                   
+                    opcion = input("\nIntroduce una opción: ")
                     
                     match opcion:
                         case "1":
-                            print(Listado.listado_juegos())
-                            break
+                            Tablas.tabla_lista_juegos()
+                            volver_menu()
 
                         case "2":
-                            print(Listado.listado_editores())
-                            break
+                        
+                            Tablas.tabla_lista_editores()
+                            volver_menu() 
                         
                         case "3":
-                            print(Listado.listado_plataformas())
-                            break
+                            Tablas.tabla_juegos_plataforma()
+                            volver_menu()
+                        
+                        case "4":
+                            Tablas.tabla_juegos_por_genero()
+                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            volver_menu()
+                        
+                    
+                        case "5":
+                            Tablas.tabla_juegos_siglo_XX()
+                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            volver_menu()
+
+                        case "6":
+                            Tablas.tabla_juegos_anios_par()
+                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            volver_menu()
+
+                        case "7":
+                            Tablas.tabla_juegos_nitendo()
+                            volver_menu()
+
+                        case "8":
+                            Tablas.tabla_ventas_encima_media()
+                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            volver_menu()
+
+                        case "9":
+                            Tablas.tabla_cinco_juegos_mas_vendidos()
+                            volver_menu()
 
                         case "0":
                             os.system("cls")
                             break
 
                         case _:
-                            print("No has introducido una opción correcta.")
+                            Tablas.rojo()
+                            print("\nNo has elegido una opción correcta.")
+                            Tablas.blanco()
+                            time.sleep(2)
+                            os.system("cls")
 
             case "0":
-                break
-
+                os.system("cls")
+                Tablas.blanco()
+                print("Saliendo...")
+                time.sleep(1)
+                os.system("cls")
+                sys.exit()
+            
+            case "admin":
+                testing()
+                volver_menu()
+            
             case _:
-                print("No has elegido una opción correcta.")
+                Tablas.rojo()
+                print("\nNo has elegido una opción correcta.")
+                Tablas.blanco()
+                time.sleep(2)
+                os.system("cls")
+       
+            
+                    
+                
 
-def main():
+
+
+                        
+def main():         
+
     menu()
 
 main()
