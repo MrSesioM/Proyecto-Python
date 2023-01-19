@@ -2,9 +2,6 @@ import Listado,Gestiones, os, time, sys
 from tabulate import tabulate
 
 
-
-
-
 def volver_menu():
     while True:
         opcion = input("\n¿Quieres volver al menu? Y/N: ")
