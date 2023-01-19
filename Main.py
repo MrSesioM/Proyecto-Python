@@ -1,5 +1,4 @@
-import Listado,Gestiones, os, time, sys, tabulate, Tablas
-
+import Listado,Gestiones, os, time, sys, Tablas, tabulate
 
 
 def volver_menu():

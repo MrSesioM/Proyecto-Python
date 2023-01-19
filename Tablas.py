@@ -1,5 +1,4 @@
-import Gestiones, Listado, tabulate 
-import pandas as pd
+import Gestiones, Listado, tabulate
 
 def tabla(lista,header): #Crea una tabla a partir de una estructura de listas
     
