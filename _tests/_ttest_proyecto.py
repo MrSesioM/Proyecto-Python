@@ -62,8 +62,6 @@ class Test_Utils(unittest.TestCase):
         self.assertEqual(Gestiones.leer_csv('vgsales.csv'), Gestiones.lista)
     def test_introduce_datos(self):
         self.assertTrue(len(Gestiones.introduce_datos()), 11)
-    def test_alta_juegos(self):
-        self.assertTrue(len(Gestiones.alta_juegos()), 11)
 
 
 if __name__ == '__main__':

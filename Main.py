@@ -49,7 +49,7 @@ def menu_testing():  #Accede al menu de testeo (solo admin)
     
     os.system("cls")
     while True:
-        menu_test = [["[1]", "Ejecutar pruebas"],["[2]", "Listar juegos (Pandas)"],["[0]", "Salir"]]
+        menu_test = [["[1]", "Ejecutar pruebas"],["[2]", "Ejecutar prueba sobre introduce_datos()"],["[3]", "Listar juegos (Pandas)"],["[0]", "Salir"]]
         print(tabulate.tabulate(menu_test, headers=[" *","MODO TESTING "], tablefmt="fancy_grid"))
         opcion = input("\nIntroduce una opción: ")
         match opcion:
@@ -59,8 +59,14 @@ def menu_testing():  #Accede al menu de testeo (solo admin)
                         os.system(r"python -m unittest C:\Users\Varito\Documents\Proyecto\_ttests\_test_proyecto.py")
                         time.sleep(3)
                         volver_menu()
-                    
                     case "2":
+                        os.system("cls")
+                        print("MODO TESTING\n")
+                        os.system(r"python -m unittest C:\Users\Varito\Documents\Proyecto\_ttests\_test_introduce_datos.py")
+                        time.sleep(3)
+                        volver_menu()
+
+                    case "3":
                         Tablas.tabla_paginada()
                         time.sleep(2)
                         volver_menu()
@@ -261,4 +267,3 @@ def main(): #Funcion main()-->llama a menu()
 
 
 main()
-2
