@@ -1,5 +1,5 @@
-import Listado,Gestiones, os, time, sys
-from tabulate import tabulate
+import Listado,Gestiones, os, time, sys, tabulate, Tablas
+
 
 
 def volver_menu():
@@ -8,13 +8,13 @@ def volver_menu():
         match opcion:
             case "y":
                 os.system("cls")
-                Listado.blanco()
+                Tablas.blanco()
                 print("Volviendo al menu...")
                 time.sleep(1)
                 menu()
             case "n":
                 os.system("cls")
-                Listado.blanco()
+                Tablas.blanco()
                 print("Saliendo...")
                 time.sleep(1)
                 os.system("cls")
@@ -28,17 +28,17 @@ def volver_menu():
 def menu():
     os.system("cls")
     while True:
-        Listado.verde()
-        menu = [["[1]", "Gestionar juegos"], ["[2]", "Mostrar informes"], ["[0]", "Salir"]]
-        print(tabulate( menu, headers=[" *","OPCIONES"],tablefmt="fancy_grid"))
+        Tablas.verde()
+        menu = [["1", "Gestionar juegos"], ["2", "Mostrar informes"], ["0", "Salir"]]
+        print(tabulate.tabulate( menu, headers=[" *","OPCIONES"],tablefmt="fancy_grid"))
         opcion = input("\nIntroduce la tarea que quieras realizar: ")
         match opcion:
             case "1":
                 os.system("cls")
                 while True:
     
-                    menu = [["[1]", "Dar de alta un juego"], ["[0]", "Volver"]]
-                    print(tabulate(menu, headers=[" *","Gestionar juegos"], tablefmt="fancy_grid"))
+                    menu = [["1", "Dar de alta un juego"], ["0", "Volver"]]
+                    print(tabulate.tabulate(menu, headers=[" *","Gestionar juegos"], tablefmt="fancy_grid"))
                     #[2] |Editar un juego.      |\n
                     #[3] |Eliminar un juego.    |\n
                     
@@ -70,8 +70,8 @@ def menu():
                 os.system("cls")
                 while True:
     
-                    menu = [["[1]", "Listar todos los juegos "], ["[2]", "Listar todos los editores"], ["[3]", "Listar todos los juegos del género 'Plataformas'"], ["[0]", "Volver"]]
-                    print(tabulate(menu, headers=[" *","Mostrar informes"], tablefmt="fancy_grid"))
+                    menu = [["1", "Listar todos los juegos "], ["2", "Listar todos los editores"], ["3", "Listar todos los juegos del género 'Plataformas'"], ["0", "Volver"]]
+                    print(tabulate.tabulate(menu, headers=[" *","Mostrar informes"], tablefmt="fancy_grid"))
     
                     #[4] |Listar todos los juegos filtrados por género.                                |\n
                     #[5] |Listar todos los juegos del siglo XX.                                        |\n
@@ -83,19 +83,16 @@ def menu():
                     
                     match opcion:
                         case "1":
-                            Listado.tabla_lista_juegos()
-                            #Listado.ordenar_listas(Listado.listado_juegos())
+                            Tablas.tabla_lista_juegos()
                             volver_menu()
 
                         case "2":
                         
-                            Listado.tabla_lista_editores()
-                            #Listado.listado_editores()
+                            Tablas.tabla_lista_editores()
                             volver_menu() 
                         
                         case "3":
-                            Listado.tabla_juegos_plataforma()
-                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            Tablas.tabla_juegos_plataforma()
                             volver_menu()
 
                         case "0":
@@ -109,7 +106,7 @@ def menu():
 
             case "0":
                 os.system("cls")
-                Listado.blanco()
+                Tablas.blanco()
                 print("Saliendo...")
                 time.sleep(1)
                 os.system("cls")
