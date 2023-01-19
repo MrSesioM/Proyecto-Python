@@ -73,14 +73,14 @@ def menu():
                 os.system("cls")
                 while True:
     
-                    menu = [["1", "Listar todos los juegos "], ["2", "Listar todos los editores"], ["3", "Listar todos los juegos del género 'Plataformas'"], ["0", "Volver"]]
+                    menu = [["1", "Listar todos los juegos "], ["2", "Listar todos los editores"], ["3", "Listar todos los juegos del género 'Plataformas'"], ["4", "Listar todos los juegos filtrados por género"], ["5", "Listar todos los juegos del siglo XX"], ["6", "Listar todos los juegos publicados en años pares"], ["8", "Listar todos los juegos con mayor media de ventas"], ["0", "Volver"]]
                     print(tabulate.tabulate(menu, headers=[" *","Mostrar informes"], tablefmt="fancy_grid"))
     
                     #[4] |Listar todos los juegos filtrados por género.                                |\n
-                    #[5] |Listar todos los juegos del siglo XX.                                        |\n
-                    #[6] |Listar todos los juegos publicados en años pares.                            |\n
+                    #
+                    #
                     #[7] |Listar todos los juego de Nintendo.                                          |\n
-                    #[8] |Listar todos los juegos con mayor media de ventas.                           |\n
+                    #
                     #[9] |Listar los 5 juegos mas vendidos de NA, Europa, Japón y del resto del mundo. |\n
                     opcion = input("\nIntroduce una opción: ")
                     
@@ -98,6 +98,26 @@ def menu():
                         
                         case "3":
                             Listado.tabla_juegos_plataforma()
+                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            volver_menu()
+
+                        case "4":
+                            Listado.juegos_por_genero()
+                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            volver_menu()
+
+                        case "5":
+                            Listado.juegos_siglo_XX()
+                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            volver_menu()
+
+                        case "6":
+                            Listado.juegos_anios_par()
+                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            volver_menu()
+
+                        case "8":
+                            Listado.ventas_encima_media()
                             #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
                             volver_menu()
 
