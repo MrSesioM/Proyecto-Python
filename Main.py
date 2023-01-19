@@ -1,4 +1,5 @@
-import Listado,Gestiones, os, time, sys, tabulate
+import Listado,Gestiones, os, time, sys, pandas
+from tabulate import tabulate
 
 
 
@@ -24,7 +25,7 @@ def volver_menu():
 
             case _:
                 print("\nNo has elegido una opción correcta.")
-2
+
 
 
 def menu():

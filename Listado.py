@@ -1,4 +1,5 @@
 import Gestiones,tabulate
+import pandas
 
 # Devuelve el listado de todos los juegos
 def listado_juegos():
@@ -29,8 +30,8 @@ def listado_juegos_plataformas():
 def tabla(lista,header): #Crea una tabla a partir de una estructura de listas
     
     naranja()
-    menu = [lista]
-    print(tabulate.tabulate(menu,header,stralign="center",tablefmt="fancy_grid"))
+    menu=pandas.Series([lista])
+    print(tabulate.tabulate(menu.head(20),header,stralign="center",tablefmt="fancy_grid"))
 
 
 def tabla_lista_juegos(): #Crea una tabla a de listado_juegos
