@@ -1,4 +1,4 @@
-import Listado,Gestiones, os, time, sys, pandas
+import Listado,Gestiones, os, time, sys
 from tabulate import tabulate
 
 

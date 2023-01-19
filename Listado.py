@@ -1,5 +1,5 @@
 import Gestiones,tabulate
-import pandas
+
 
 # Devuelve el listado de todos los juegos
 def listado_juegos():
