@@ -1,4 +1,4 @@
-import csv,os,Listado,time
+import csv,os,Listado,time,Tablas
 
 
 lista=[]
@@ -53,12 +53,13 @@ def comprobacion(datos,pregunta,i):
     return datos
 
 # Compruebo si se introduce un número válido en las ventas o si queremos dejarlo en blanco
-def ventas():
+def ventas(continente):
     while True:
         try:
-            ventas = input("Introduce el nº de ventas (en millones) (dejar en blanco si se desconoce): ")
+            ventas = input(f"Introduce el nº de ventas de {continente} (en millones) (dejar en blanco si se desconoce): ")
+            
             if ventas == "":
-                return ventas
+                return "NA"
             else:
                 ventas = float(ventas)
                 return ventas
@@ -109,7 +110,7 @@ def introduce_datos():
                 break
                 
             elif lista_preguntas[i] in floats:
-                datos.append(ventas())
+                datos.append(ventas(lista_preguntas[i]))
                 break
             else:
                 datos.append(input(f"Introduce el {lista_preguntas[i]}: "))
@@ -124,19 +125,12 @@ def introduce_datos():
 def alta_juegos():
     juego=introduce_datos()
     lista.append(juego)
-    salida = ("Nombre del juego: ","Plataforma: ","Año de lanzamiento: ","Género: ","Desarrolladora: ","Nº de ventas en América del Norte (en millones): ","Nº de ventas en Europa (en millones): ","Nº de ventas en Japón (en millones): ","Nº de ventas en otros países (en millones): ","Nº de ventas globales (en millones): ")
-    resultado = ""
-    for i in range(len(salida)):
-        if juego[i+1] == "":
-            resultado += (f"{i+1} - {salida[i]}desconocido.\n")
-        else:
-            resultado += (f"{i+1} - {salida[i]}{juego[i+1]}\n")
-    return resultado
-
+    return juego
 
 def editar_juegos():
+    header = ['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
     while True:
-        nombre = input("Escribe el juego que quiere editar (0 para salir): ")
+        nombre = input("\nEscribe el juego que quiere editar (0 para salir): ")
         if nombre == "0":
             break
         juego = ""
@@ -144,8 +138,10 @@ def editar_juegos():
             if nombre.lower() == i[1].lower():
                 juego = i
                 while True:
-                    print("\nEstos son los datos del juego:\n",juego)
-                    editar = input("\n¿Que quiere editar de este juego? (Rank, Name, Platform, Year, Genre, Publisher, NA_Sales, EU_Sales, JP_Sales, Other_Sales, Global_Sales) (Introduce 0 para salir)\n")
+                    print("\nEstos son los datos del juego:\n")
+                    Tablas.tabla(juego,header)
+                    Tablas.verde()
+                    editar = input("\n¿Que quiere editar de este juego? (Rank, Name, Platform, Year, Genre, Publisher, NA_Sales, EU_Sales, JP_Sales, Other_Sales, Global_Sales) (Introduce 0 para salir)\n\n> ")
                     match editar:
                         case "rank":
                             while True:
@@ -218,14 +214,15 @@ def editar_juegos():
             pregunta = input("Ese juego no se encuentra, ¿quieres añadirlo? (y/n)\n")
             while True:
                 if pregunta == "y":
-                    print(f"Has añadido el siguiente juego:\n{alta_juegos()}")
+                    print("Has añadido el siguiente juego:\n")
+                    Tablas.tabla(alta_juegos(),header)
                     break
                 elif pregunta == "n":
                     break
                 else:
                     pregunta = input("Tienes que introducir y o n para continuar: ")
         else:
-            print("Has hecho cambios en este juego:\n")
+            print("\nHas hecho cambios en este juego:\n")
             return juego
 def eliminar_juegos():
     

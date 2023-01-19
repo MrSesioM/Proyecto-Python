@@ -17,19 +17,25 @@ def menu_testing():
     
     os.system("cls")
     while True:
-        menu_test = [["[1]", "Ejecutar pruebas"],["[0]", "Salir"]]
+        menu_test = [["[1]", "Ejecutar pruebas"],["[2]", "Listar juegos (Pandas)"],["[0]", "Salir"]]
         print(tabulate.tabulate(menu_test, headers=[" *","MODO TESTING "], tablefmt="fancy_grid"))
         opcion = input("\nIntroduce una opción: ")
         match opcion:
                     case "1":
                         os.system("cls")
                         print("MODO TESTING\n")
-                        filePath= r"python -m unittest C:\Users\Varito\Documents\Proyecto\_tests\_test_proyecto.py"
+                        filePath= r"python -m unittest ...\_tests\_test_proyecto.py"
                         os.system(filePath)
                         time.sleep(3)
                         volver_menu()
+                    
+                    case "2":
+                        Tablas.tabla_paginada()
+                        time.sleep(2)
+                        volver_menu()
+                        
                     case "0":
-                        Tablas.tabla(Tablas.tabla_paginada(),["hola"])
+                       
                         time.sleep(30)
                         os.system("cls")    
                         volver_menu()
@@ -80,20 +86,20 @@ def menu():
     
                     menu = [["[1]", "Dar de alta un juego"],["[2]", "Editar un juego"],["[3]","Eliminar un juego"],["[0]", "Volver"]]
                     print(tabulate.tabulate(menu, headers=[" *","Gestionar juegos"], tablefmt="fancy_grid"))
-
+                    header = ['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
                     opcion = input("\nIntroduce una opción: ")
                     
                     match opcion:
                         case "1":
-                            print(Gestiones.alta_juegos())
+                            Tablas.tabla(Gestiones.alta_juegos(),header)
                             volver_menu()
 
                         case "2":
-                            Gestiones.editar_juegos()
+                            Tablas.tabla(Gestiones.editar_juegos(),header)
                             volver_menu()
                      
                         case "3":
-                            Gestiones.eliminar_juegos()
+                            Tablas.tabla(Gestiones.eliminar_juegos(),header)
                             volver_menu()
 
                         case "0":

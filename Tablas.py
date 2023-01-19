@@ -102,8 +102,8 @@ def listado_generos():
 def tabla_paginada():
 
     import pandas as pd
-    df = pd.DataFrame(Gestiones.lista)
-
+    header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
+    df = pd.DataFrame(Gestiones.lista, columns=header)
     #paginar la lista
     paginado = df.iloc[::2]
     print(paginado)
