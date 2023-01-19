@@ -24,3 +24,19 @@ def listado_juegos_plataformas():
     return juegos_plataforma
 
 
+def cinco_juegos_mas_vendidos():
+    
+    lista_juegos_vendidos = []
+    cinco_juegos_vendidos = []
+
+
+    for ventas in Gestiones.lista:
+        lista_juegos_vendidos.append(ventas)
+    
+    lista_juegos_vendidos.sort(key=lambda x: x[10], reverse=True) # Ordenar la lista de juegos de mayor a menor
+    lista_juegos_vendidos.remove(lista_juegos_vendidos[0])
+    
+    for i in range(5):     # Imprimir los 5 juegos más vendidos
+        cinco_juegos_vendidos.append(lista_juegos_vendidos[i])
+    
+    return cinco_juegos_vendidos
