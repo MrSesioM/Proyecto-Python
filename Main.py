@@ -56,8 +56,7 @@ def menu_testing():  #Accede al menu de testeo (solo admin)
                     case "1":
                         os.system("cls")
                         print("MODO TESTING\n")
-                        filePath= r"python -m unittest C:\Users\Varito\Documents\Proyecto\_ttests\_test_proyecto.py"
-                        os.system(filePath)
+                        os.system(r"python -m unittest C:\Users\Varito\Documents\Proyecto\_ttests\_test_proyecto.py")
                         time.sleep(3)
                         volver_menu()
                     

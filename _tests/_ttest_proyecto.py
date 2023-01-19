@@ -27,40 +27,44 @@ class Test_Utils(unittest.TestCase):
     def test_listado_plataformas(self):
         self.assertEqual(Listado.listado_juegos_plataformas(),lista_plataformas)
 
-
+    def test_listado_generos(self)
+        self.assertEqual(Listado.listado_generos(),lista_generos)
     #Testing en Tablas.py
 
     def test_tabla(self):
         lista = [1,2,3]
         header = ["a","b","c"]
-        self.assertEqual(Tablas.tabla(lista,header), None)
+        self.assertEqual(Tablas.tabla(lista,header), Listado.)
     
     def test_tabla_lista_juegos(self):
-        self.assertEqual(Tablas.tabla_lista_juegos(), None)
+        self.assertEqual(Tablas.tabla_lista_juegos(), Listado.listado_juegos())
     
     def test_tabla_lista_editores(self):
-        self.assertEqual(Tablas.tabla_lista_editores(), None)
+        self.assertEqual(Tablas.tabla_lista_editores(), Listado.listado_editores())
     
     def test_tabla_juegos_plataforma(self):
-        self.assertEqual(Tablas.tabla_juegos_plataforma(), None)
+        self.assertEqual(Tablas.tabla_juegos_plataforma(), 
+        Listado.listado_juegos_plataformas())
     
     def test_tabla_cinco_juegos_mas_vendidos(self):
-        self.assertEqual(Tablas.tabla_cinco_juegos_mas_vendidos(), None)
+        self.assertEqual(Tablas.tabla_cinco_juegos_mas_vendidos(), 
+        Listado.cinco_juegos_mas_vendidos())
     
     def test_tabla_juegos_anios_par(self):
-        self.assertEqual(Tablas.tabla_juegos_anios_par(), None)
+        self.assertEqual(Tablas.tabla_juegos_anios_par(), Listado.)
     
     def test_tabla_juegos_siglo_XX(self):
-        self.assertEqual(Tablas.tabla_juegos_siglo_XX(), None)
+        self.assertEqual(Tablas.tabla_juegos_siglo_XX(), Listado.)
     
     def test_media_ventas_total(self):
         self.assertIsInstance(Tablas.media_ventas_total(), float)
     
     def test_tabla_ventas_encima_media(self):
-        self.assertEqual(Tablas.tabla_ventas_encima_media(), None)
+        self.assertEqual(Tablas.tabla_ventas_encima_media(), Listado.)
     
     def test_tabla_juegos_por_genero(self):
-        self.assertEqual(Tablas.tabla_juegos_por_genero(), None)
+        self.assertEqual(Tablas.tabla_juegos_por_genero(), 
+        Listado.listado_generos())
     
 
     #Testing en Gestion.py
@@ -68,9 +72,10 @@ class Test_Utils(unittest.TestCase):
     def test_leer_csv(self):
         self.assertEqual(Gestiones.leer_csv('vgsales.csv'), Gestiones.lista)
     def test_introduce_datos(self):
-        self.assertEqual(len(Gestiones.introduce_datos()), 11)
+        self.assertTrue(len(Gestiones.introduce_datos()), 11)
     def test_alta_juegos(self):
-        self.assertEqual(len(Gestiones.alta_juegos()), 11)
+        self.assertTrue(len(Gestiones.alta_juegos()), 11)
+
 
 
 if __name__ == '__main__':
