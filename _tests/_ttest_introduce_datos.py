@@ -15,9 +15,10 @@ class Test_Utils(unittest.TestCase):
                 if i==1 or i==3 or i==5 or i==6:
                     lista.append(random.choice(letras) + random.choice(letras) + random.choice(letras) + random.choice(letras) + random.choice(letras) + random.choice(letras))
                 if i==0:
-                    lista.append(random.randint(1900,2050))
+                    lista.append(int(random.randint(1900,2050)))
                 elif i==4:
-                    lista.append(random.randint(1900,2050))
+                    lista.append(int(random.randint(1900,2050)))
+                    lista.append(int(random.randint(1900,2050)))
                 elif i>=7:
                     lista.append(random.randint(0,10))
 
