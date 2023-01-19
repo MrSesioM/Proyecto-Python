@@ -28,6 +28,7 @@ def introduce_datos():
                 try:
                     datos.append(int(input(f"Introduce el {lista_preguntas[i]}: ")))
                     assert datos[i] >= 1958, "No puedes introducir un año menor a 1958."
+                
                 except ValueError:
                     print("No has introducido un número válido")
                 except AssertionError as error:
@@ -36,7 +37,7 @@ def introduce_datos():
                 else:
                     break
             # Compruebo si se introduce un dato válido en Genre o Publisher (que no sea un número o un float, tiene que contener caracteres)
-            elif lista_preguntas[i] in strings:
+            elif lista_preguntas[i] =='Genre' or 'Publisher' :
                 try:
                     datos.append(input(f"Introduce el {lista_preguntas[i]}: "))
                     datos[i] = float(datos[i])
@@ -49,9 +50,8 @@ def introduce_datos():
             elif lista_preguntas[i] in floats:
                 try:
                     datos.append(float(input(f"Introduce el {lista_preguntas[i]}: ")))            
-                except ValueError:
                     print("No has introducido un número válido")
-                else:
+                except:
                     break
             else:
                 datos.append(input(f"Introduce el {lista_preguntas[i]}: "))
