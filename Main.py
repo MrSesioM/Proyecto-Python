@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+import Listado,Gestiones,os
+=======
 import Listado, Gestiones, os, time, sys, tabulate, Tablas
 
 def testing():
@@ -65,6 +68,7 @@ def volver_menu():
                 Tablas.blanco()
 
 
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
 
 def menu():
     os.system("cls")
@@ -89,11 +93,19 @@ def menu():
                             volver_menu()
 
                         case "2":
+<<<<<<< HEAD
+                            print(Gestiones.editar_juego())
+                            break
+                        
+                        case "3":
+                            print(Gestiones.eliminar_juego())
+=======
                             print("\nEn Desarollo")
                             volver_menu()
                      
                         case "3":
                             Gestiones.eliminar_juegos()
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
                             break
 
                         case "0":

@@ -24,6 +24,9 @@ def listado_juegos_plataformas():
     
     return juegos_plataforma
 
+<<<<<<< HEAD
+# Devuelve el listado de los distintos tipos de géneros que hay
+=======
 
 def cinco_juegos_mas_vendidos(): #Devuelve una lista con los 5 jeugos mas vendidos
 
@@ -50,9 +53,21 @@ def listado_juegos_nintendo():
     return juegos_nintendo
 
 
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
 def listado_generos():
     lista_generos = []
     for juego in Gestiones.lista:
         if (juego[4] not in lista_generos):
             lista_generos.append(juego[4])
     return lista_generos
+<<<<<<< HEAD
+
+# Devuelve el listado de las plataformas que hay
+def listado_consolas():
+    lista_consolas = []
+    for juego in Gestiones.lista:
+        if (juego[2] not in lista_consolas):
+            lista_consolas.append(juego[2])
+    return lista_consolas
+=======
+>>>>>>> 013053dec0c9a8c1b02cb53b6653303c7514c522
