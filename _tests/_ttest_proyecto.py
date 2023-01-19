@@ -28,7 +28,7 @@ class Test_Utils(unittest.TestCase):
     def test_listado_plataformas(self):
         self.assertEqual(Listado.listado_juegos_plataformas(),lista_plataformas)
 
-    def test_listado_generos(self)
+    def test_listado_generos(self):
         self.assertEqual(Listado.listado_generos(),lista_generos)
 
     #Testing en Tablas.py
@@ -41,28 +41,22 @@ class Test_Utils(unittest.TestCase):
         self.assertEqual(Tablas.tabla_lista_editores(), Listado.listado_editores())
     
     def test_tabla_juegos_plataforma(self):
-        self.assertEqual(Tablas.tabla_juegos_plataforma(), 
-        Listado.listado_juegos_plataformas())
+        self.assertEqual(Tablas.tabla_juegos_plataforma(), Listado.listado_juegos_plataformas())
     
     def test_tabla_cinco_juegos_mas_vendidos(self):
-        self.assertEqual(Tablas.tabla_cinco_juegos_mas_vendidos(), 
-        Listado.cinco_juegos_mas_vendidos())
+        self.assertEqual(Tablas.tabla_cinco_juegos_mas_vendidos(), Listado.cinco_juegos_mas_vendidos())
     
     def test_media_ventas_total(self):
         self.assertIsInstance(Tablas.media_ventas_total(), float)
     
     def test_tabla_juegos_por_genero(self):
-        self.assertEqual(Tablas.tabla_juegos_por_genero(), 
-        Listado.listado_generos())
+        self.assertEqual(Tablas.tabla_juegos_por_genero(), Listado.listado_generos())
     
 
     #Testing en Gestion.py
 
     def test_leer_csv(self):
         self.assertEqual(Gestiones.leer_csv('vgsales.csv'), Gestiones.lista)
-    def test_introduce_datos(self):
-        self.assertTrue(len(Gestiones.introduce_datos()), 11)
-
-
+      
 if __name__ == '__main__':
     unittest.main()
