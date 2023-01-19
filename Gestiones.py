@@ -114,7 +114,7 @@ def introduce_datos():
             else:
                 datos.append(input(f"Introduce el {lista_preguntas[i]}: "))
                 break
-    rank = len(lista) + 2
+    rank = len(lista) + 3
     datos.insert(0, rank)
     os.system("cls")
 
@@ -124,6 +124,7 @@ def introduce_datos():
 def alta_juegos():
     juego=introduce_datos()
     lista.append(juego)
+    
     salida = ("Nombre del juego: ","Plataforma: ","Año de lanzamiento: ","Género: ","Desarrolladora: ","Nº de ventas en América del Norte (en millones): ","Nº de ventas en Europa (en millones): ","Nº de ventas en Japón (en millones): ","Nº de ventas en otros países (en millones): ","Nº de ventas globales (en millones): ")
     resultado = ""
     for i in range(len(salida)):

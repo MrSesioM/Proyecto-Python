@@ -1,4 +1,4 @@
-import Listado, Gestiones, os, time, sys, tabulate, Tablas
+import Listado, Gestiones, os, time, sys, tabulate, Tablas, csv
 
 def testing():
     import getpass
@@ -64,6 +64,60 @@ def volver_menu():
                 print("\nNo has elegido una opción correcta.")
                 Tablas.blanco()
 
+def volver_menu_guardar():
+    while True:
+        Tablas.blanco()
+        opcion = input("\n¿Quieres volver al menu? Y/N: ")
+        match opcion:
+            case "y":
+                os.system("cls")
+                Tablas.blanco()
+                opcion_guardar = input("\n¿Quieres guardar los cambios? Y/N: ")
+                match opcion_guardar:
+                    case "y":
+                        os.system("cls")
+                        Tablas.blanco()
+                        with open("vgsales.csv", "w") as f:
+                            writer = csv.writer(f)
+                            for juego in Gestiones.lista:
+                                with open("vgsales.csv", "a") as f2:
+                                    writer2 = csv.writer(f)
+                                    writer2.writerow(juego)
+                        print("Guardando...")
+                        time.sleep(1)
+                        print("Saliendo...")
+                        time.sleep(1)
+                        menu()
+                        
+                    case "n":
+                        os.system("cls")
+                        Tablas.blanco()
+                        print("Saliendo...")
+                        time.sleep(1)
+                        os.system("cls")
+                        sys.exit()
+
+                    case _:
+                        Tablas.rojo()
+                        print("\nNo has elegido una opción correcta.")
+                        Tablas.blanco()
+                print("Volviendo al menu...")
+                time.sleep(1)
+                menu()
+
+            case "n":
+                os.system("cls")
+                Tablas.blanco()
+                print("Saliendo...")
+                time.sleep(1)
+                os.system("cls")
+                sys.exit()
+
+            case _:
+                Tablas.rojo()
+                print("\nNo has elegido una opción correcta.")
+                Tablas.blanco()
+
 
 
 def menu():
@@ -86,7 +140,7 @@ def menu():
                     match opcion:
                         case "1":
                             print(Gestiones.alta_juegos())
-                            volver_menu()
+                            volver_menu_guardar()
 
                         case "2":
                             Gestiones.editar_juegos()
