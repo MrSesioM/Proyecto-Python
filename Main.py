@@ -1,4 +1,4 @@
-import Listado, Gestiones, os, time, sys, tabulate, Tablas
+import Listado, Gestiones, os, time, sys, tabulate, Tablas, csv
 
 def testing():
     import getpass
@@ -17,20 +17,23 @@ def menu_testing():
     
     os.system("cls")
     while True:
-        menu_test = [["[1]", "Ejecutar pruebas"],["[0]", "Salir"]]
+        menu_test = [["[1]", "Ejecutar pruebas"],["[2]", "Listar juegos (Pandas)"],["[0]", "Salir"]]
         print(tabulate.tabulate(menu_test, headers=[" *","MODO TESTING "], tablefmt="fancy_grid"))
         opcion = input("\nIntroduce una opción: ")
         match opcion:
                     case "1":
                         os.system("cls")
                         print("MODO TESTING\n")
-                        filePath= r"python -m unittest C:\Users\Varito\Documents\Proyecto\_tests\_test_proyecto.py"
+                        filePath= r"python -m unittest C:\Users\Varito\Documents\Proyecto\_ttests\_test_proyecto.py"
                         os.system(filePath)
                         time.sleep(3)
                         volver_menu()
+                    
+                    case "2":
+                        Tablas.tabla_paginada()
+                        time.sleep(2)
+                        volver_menu()
                     case "0":
-                        Tablas.tabla(Tablas.tabla_paginada(),["hola"])
-                        time.sleep(30)
                         os.system("cls")    
                         volver_menu()
                     case _:
@@ -64,6 +67,60 @@ def volver_menu():
                 print("\nNo has elegido una opción correcta.")
                 Tablas.blanco()
 
+def volver_menu_guardar():
+    while True:
+        Tablas.blanco()
+        opcion = input("\n¿Quieres volver al menu? Y/N: ")
+        match opcion:
+            case "n":
+                os.system("cls")
+                Tablas.blanco()
+                opcion_guardar = input("\n¿Quieres guardar los cambios? Y/N: ")
+                match opcion_guardar:
+                    case "y":
+                        os.system("cls")
+                        Tablas.blanco()
+                        with open("vgsales.csv", "w") as f:
+                            writer = csv.writer(f)
+                            for juego in Gestiones.lista:
+                                with open("vgsales.csv", "a") as f2:
+                                    writer2 = csv.writer(f)
+                                    writer2.writerow(juego)
+                        print("Guardando...")
+                        time.sleep(1)
+                        print("Saliendo...")
+                        time.sleep(1)
+                        menu()
+                        
+                    case "n":
+                        os.system("cls")
+                        Tablas.blanco()
+                        print("Saliendo...")
+                        time.sleep(1)
+                        os.system("cls")
+                        sys.exit()
+
+                    case _:
+                        Tablas.rojo()
+                        print("\nNo has elegido una opción correcta.")
+                        Tablas.blanco()
+                print("Volviendo al menu...")
+                time.sleep(1)
+                menu()
+
+            case "y":
+                os.system("cls")
+                Tablas.blanco()
+                print("Saliendo...")
+                time.sleep(1)
+                os.system("cls")
+                sys.exit()
+
+            case _:
+                Tablas.rojo()
+                print("\nNo has elegido una opción correcta.")
+                Tablas.blanco()
+
 
 
 def menu():
@@ -80,21 +137,21 @@ def menu():
     
                     menu = [["[1]", "Dar de alta un juego"],["[2]", "Editar un juego"],["[3]","Eliminar un juego"],["[0]", "Volver"]]
                     print(tabulate.tabulate(menu, headers=[" *","Gestionar juegos"], tablefmt="fancy_grid"))
-
+                    header = ['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
                     opcion = input("\nIntroduce una opción: ")
                     
                     match opcion:
                         case "1":
-                            print(Gestiones.alta_juegos())
-                            volver_menu()
+                            Tablas.tabla(Gestiones.alta_juegos(),header)
+                            volver_menu_guardar()
 
                         case "2":
-                            print("\nEn Desarollo")
-                            volver_menu()
+                            Tablas.tabla(Gestiones.editar_juegos(),header)
+                            volver_menu_guardar()
                      
                         case "3":
-                            Gestiones.eliminar_juegos()
-                            break
+                            Tablas.tabla(Gestiones.eliminar_juegos(),header)
+                            volver_menu_guardar()
 
                         case "0":
                             os.system("cls")
@@ -141,23 +198,21 @@ def menu():
                             volver_menu()
                         
                         case "4":
-                            Tablas.tabla_juegos_por_genero()
-                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                            Tablas.tabla_juegos_por_genero()   
                             volver_menu()
                         
                     
                         case "5":
                             Tablas.tabla_juegos_siglo_XX()
-                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
                             volver_menu()
 
                         case "6":
                             Tablas.tabla_juegos_anios_par()
-                            #(Listado.ordenar_listas(enumerate(Listado.listado_juegos_plataformas(),1)))
+                     
                             volver_menu()
 
                         case "7":
-                            Tablas.tabla_juegos_nitendo()
+                            Tablas.tabla_juegos_nintendo()
                             volver_menu()
 
                         case "8":

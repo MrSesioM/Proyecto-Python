@@ -31,15 +31,12 @@ def tabla_juegos_plataforma(): #Crear una tabla de listado_juegos_plataformas()
     for lista in lista_plataformas:
         tabla(lista,"")
 
-def tabla_juegos_nitendo():
+def tabla_juegos_nintendo():
     lista_nintendo = []
     header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
     for juegos in Listado.listado_juegos_nintendo():
-        lista_nintendo.append([juegos])
+        tabla(juegos,header)
     
-    for lista in lista_nintendo:
-        tabla(lista,"")
-
 
 def tabla_cinco_juegos_mas_vendidos(): #Crear una tabla de los 5 juegos mas vendidos
     header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
@@ -105,8 +102,8 @@ def listado_generos():
 def tabla_paginada():
 
     import pandas as pd
-    df = pd.DataFrame(Gestiones.lista)
-
+    header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
+    df = pd.DataFrame(Gestiones.lista, columns=header)
     #paginar la lista
     paginado = df.iloc[::2]
     print(paginado)
