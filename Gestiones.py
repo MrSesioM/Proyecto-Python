@@ -228,27 +228,24 @@ def eliminar_juegos():
     
     while True:
             
-            juegos_eliminar = input("[Pulse 0 para salir]\n Que juego quieres eliminar: ")
-            if juegos_eliminar == "0":
-                    return False
-            plataforma_juegos = input("De que plataforma es tu juego: ")
+        juegos_eliminar = input("[Pulse 0 para salir]\nQue juego quieres eliminar: ")
+        if juegos_eliminar == "0":
+            return False
+        plataforma_juegos = input("De que plataforma es tu juego: ")
 
-            for i in lista:       
-                if juegos_eliminar.lower() == i[1].lower() and plataforma_juegos.lower() == i[2].lower():
-                        confirmacion = input("Estas seguro Y/N: ")   
-                        if confirmacion == "y":
-                                lista.remove(i)
-                                os.system("cls")
-                                print("Has eliminado el juego\n",i)
-                                time.sleep(2)
-                                os.system("cls")
-                                return False
+        for i in lista:       
+            if juegos_eliminar.lower() == i[1].lower() and plataforma_juegos.lower() == i[2].lower():
+                confirmacion = input("Estas seguro Y/N: ")   
+                if confirmacion == "y":
+                    lista.remove(i)
+                    os.system("cls")
+                    print("\nHas eliminado el siguiente juego")
+                    return i
+            
+                elif confirmacion == "n":
+                    os.system("cls") 
+                    print("\nEl siguiente juego no ha sido eliminado")             
+                    return i
+           
 
-                        elif confirmacion == "n":
-                                os.system("cls") 
-                                print("No has eliminado ningun juego")
-                                time.sleep(2)
-                                os.system("cls")
-                                return False     
-
-leer_csv('vgsales(1).csv')
+leer_csv('vgsales.csv')

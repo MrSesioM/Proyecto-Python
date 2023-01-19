@@ -1,5 +1,38 @@
 import Listado, Gestiones, os, time, sys, tabulate, Tablas, csv
 
+def guardar_cambios():
+
+    opcion_guardar = input("\n¿Quieres guardar los cambios? Y/N: ")
+    match opcion_guardar:
+        case "y":
+            os.system("cls")
+            Tablas.blanco()
+            with open("vgsales2.csv", "w") as f:
+                writer = csv.writer(f)
+                for juego in Gestiones.lista:
+                    with open("vgsales2.csv", "a") as f2:
+                        writer2 = csv.writer(f)
+                        writer2.writerow(juego)
+            print("Guardando...")
+            time.sleep(1)
+            print("Saliendo...")
+            time.sleep(1)
+            sys.exit()
+            
+        case "n":
+            os.system("cls")
+            Tablas.blanco()
+            print("Saliendo...")
+            time.sleep(1)
+            os.system("cls")
+            sys.exit()
+
+        case _:
+            Tablas.rojo()
+            print("\nNo has elegido una opción correcta.")
+            Tablas.blanco()
+
+
 def testing():
     import getpass
     os.system("cls")
@@ -75,35 +108,7 @@ def volver_menu_guardar():
             case "n":
                 os.system("cls")
                 Tablas.blanco()
-                opcion_guardar = input("\n¿Quieres guardar los cambios? Y/N: ")
-                match opcion_guardar:
-                    case "y":
-                        os.system("cls")
-                        Tablas.blanco()
-                        with open("vgsales(1).csv", "w") as f:
-                            writer = csv.writer(f)
-                            for juego in Gestiones.lista:
-                                with open("vgsales(1).csv", "a") as f2:
-                                    writer2 = csv.writer(f)
-                                    writer2.writerow(juego)
-                        print("Guardando...")
-                        time.sleep(1)
-                        print("Saliendo...")
-                        time.sleep(1)
-                        sys.exit()
-                        
-                    case "n":
-                        os.system("cls")
-                        Tablas.blanco()
-                        print("Saliendo...")
-                        time.sleep(1)
-                        os.system("cls")
-                        sys.exit()
-
-                    case _:
-                        Tablas.rojo()
-                        print("\nNo has elegido una opción correcta.")
-                        Tablas.blanco()
+                guardar_cambios()
                 print("Volviendo al menu...")
                 time.sleep(1)
                 menu()
@@ -111,17 +116,14 @@ def volver_menu_guardar():
             case "y":
                 os.system("cls")
                 Tablas.blanco()
-                print("Saliendo...")
                 time.sleep(1)
                 os.system("cls")
-                sys.exit()
+                menu()
 
             case _:
                 Tablas.rojo()
                 print("\nNo has elegido una opción correcta.")
                 Tablas.blanco()
-
-
 
 def menu():
     os.system("cls")
@@ -208,7 +210,6 @@ def menu():
 
                         case "6":
                             Tablas.tabla_juegos_anios_par()
-                     
                             volver_menu()
 
                         case "7":
@@ -238,6 +239,7 @@ def menu():
             case "0":
                 os.system("cls")
                 Tablas.blanco()
+                guardar_cambios()
                 print("Saliendo...")
                 time.sleep(1)
                 os.system("cls")
