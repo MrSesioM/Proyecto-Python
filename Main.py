@@ -29,6 +29,8 @@ def menu_testing():
                         time.sleep(3)
                         volver_menu()
                     case "0":
+                        Tablas.tabla(Tablas.tabla_paginada(),["hola"])
+                        time.sleep(30)
                         os.system("cls")    
                         volver_menu()
                     case _:
@@ -38,9 +40,6 @@ def menu_testing():
                         time.sleep(2)
                         os.system("cls")
                 
-
-
-
 def volver_menu():
     while True:
         Tablas.blanco()
@@ -200,15 +199,8 @@ def menu():
                 time.sleep(2)
                 os.system("cls")
        
-            
-                    
-                
-
-
-
-                        
+                  
 def main():         
-
     menu()
 
 main()

@@ -102,6 +102,16 @@ def listado_generos():
             lista_generos.append(juego[4])
     return lista_generos
 
+def tabla_paginada():
+
+    import pandas as pd
+    df = pd.DataFrame(Gestiones.lista)
+
+    #paginar la lista
+    paginado = df.iloc[::2]
+    print(paginado)
+
+
 def naranja():
     print("\033[33m")
 
