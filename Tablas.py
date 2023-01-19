@@ -80,7 +80,10 @@ def tabla_ventas_encima_media():    #Crear una tabla de los juegos en ventas por
 def tabla_juegos_por_genero():  #Crear una tabla de los juegos filtrados por genero
     genero = ""
     while (genero not in Listado.listado_generos()):
-        genero = input(f"Introduce el género ({Listado.listado_generos()}: ")
+        
+        tabla(Listado.listado_generos(),"")
+        verde()
+        genero = input("Introduce el género: ")
         
     juegos_genero = []
     for juego in Gestiones.lista:
