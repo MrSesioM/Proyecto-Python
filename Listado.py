@@ -23,6 +23,18 @@ def listado_juegos_plataformas():
             juegos_plataforma.append(juego[1])
     return juegos_plataforma
 
+
+
+# Filtrar por los juegos que sean de la plataforma nintendo
+def listado_juegos_nintendo():
+    juegos_nintendo = []
+    input
+    for juego in Gestiones.lista:
+        print(juego)
+        
+
+
+
 #def ordenar_listas(lista):
    # for i in lista:
     #    print(f"Rank: {i[j]}, Nombre: {i[j+1]}, Plataforma: {i[2]}, Año: {i[3]}, Genero: {i[4]}, Publisher: {i[5]}, Ventas NA: {i[6]}, Ventas EU: {i[7]}, Ventas JP: {i[8]}, Otras ventas: {i[9]}, Ventas global: {i[10]}")
