@@ -49,9 +49,8 @@ def introduce_datos():
             elif lista_preguntas[i] in floats:
                 try:
                     datos.append(float(input(f"Introduce el {lista_preguntas[i]}: ")))            
-                except ValueError:
                     print("No has introducido un número válido")
-                else:
+                except:
                     break
             else:
                 datos.append(input(f"Introduce el {lista_preguntas[i]}: "))
