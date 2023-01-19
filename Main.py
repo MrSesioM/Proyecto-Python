@@ -15,32 +15,29 @@ def testing():
 
 def menu_testing():
     
-    
     os.system("cls")
-    menu_test = [["[1]", "Ejecutar pruebas"],["[0]", "Salir"]]
-    print(tabulate.tabulate(menu_test, headers=[" *","MODO TESTING "], tablefmt="fancy_grid"))
-    opcion = input("\nIntroduce una opción: ")
     while True:
+        menu_test = [["[1]", "Ejecutar pruebas"],["[0]", "Salir"]]
+        print(tabulate.tabulate(menu_test, headers=[" *","MODO TESTING "], tablefmt="fancy_grid"))
+        opcion = input("\nIntroduce una opción: ")
         match opcion:
                     case "1":
                         os.system("cls")
                         print("MODO TESTING\n")
                         filePath= r"python -m unittest C:\Users\Varito\Documents\Proyecto\_tests\_test_proyecto.py"
                         os.system(filePath)
-                        time.sleep(10)
-                        os.system("cls")
+                        time.sleep(3)
                         volver_menu()
-
-                
                     case "0":
                         os.system("cls")    
                         volver_menu()
                     case _:
                         Tablas.rojo()
                         print("\nNo has elegido una opción correcta.")
-                        Tablas.blanco()
+                        Tablas.morado()
                         time.sleep(2)
                         os.system("cls")
+                
 
 
 
