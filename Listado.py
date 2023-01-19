@@ -1,6 +1,7 @@
 import Gestiones,tabulate
 from pandas import pandas
 from tabulate import tabulate
+from numpy import numpy
 
 # Devuelve el listado de todos los juegos
 def listado_juegos():
