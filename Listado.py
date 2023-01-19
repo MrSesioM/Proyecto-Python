@@ -29,7 +29,6 @@ def cinco_juegos_mas_vendidos():
     lista_juegos_vendidos = []
     cinco_juegos_vendidos = []
 
-
     for ventas in Gestiones.lista:
         lista_juegos_vendidos.append(ventas)
     

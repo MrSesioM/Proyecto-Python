@@ -32,7 +32,7 @@ def tabla_juegos_plataforma(): #Crear una tabla de listado_juegos_plataformas()
     for lista in lista_plataformas:
         tabla(lista,"")
 
-def tabla_cinco_juegos_mas_vendidos():
+def tabla_cinco_juegos_mas_vendidos(): #Crear una tabla de los 5 juegos mas vendidos
     header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
     for juego in Listado.cinco_juegos_mas_vendidos():
         tabla(juego,header)
