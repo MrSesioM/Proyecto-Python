@@ -21,6 +21,7 @@ def listado_juegos_plataformas():
     for juego in Gestiones.lista:
         if(juego[4] == "Platform"):
             juegos_plataforma.append(juego[1])
+    
     return juegos_plataforma
 
 
@@ -38,6 +39,16 @@ def cinco_juegos_mas_vendidos(): #Devuelve una lista con los 5 jeugos mas vendid
         cinco_juegos_vendidos.append(lista_juegos_vendidos[i])
 
     return cinco_juegos_vendidos
+
+# Devuelve el listado de los juego que son de la compañia nintendo
+
+def listado_juegos_nintendo():
+    juegos_nintendo = []
+    for juego in Gestiones.lista:
+        if juego[5] == "Nintendo":
+            juegos_nintendo.append(juego)
+    return juegos_nintendo
+
 
 def listado_generos():
     lista_generos = []

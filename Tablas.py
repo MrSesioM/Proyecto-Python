@@ -1,5 +1,4 @@
-import Gestiones, Listado, tabulate 
-import pandas as pd
+import Gestiones, Listado, tabulate
 
 def tabla(lista,header): #Crea una tabla a partir de una estructura de listas
     
@@ -31,6 +30,16 @@ def tabla_juegos_plataforma(): #Crear una tabla de listado_juegos_plataformas()
     
     for lista in lista_plataformas:
         tabla(lista,"")
+
+def tabla_juegos_nitendo():
+    lista_nintendo = []
+    header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
+    for juegos in Listado.listado_juegos_nintendo():
+        lista_nintendo.append([juegos])
+    
+    for lista in lista_nintendo:
+        tabla(lista,"")
+
 
 def tabla_cinco_juegos_mas_vendidos(): #Crear una tabla de los 5 juegos mas vendidos
     header=['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
@@ -83,6 +92,8 @@ def tabla_juegos_por_genero():
     for juego in Gestiones.lista:
         if (genero == juego[4]):
             juegos_genero.append(juego)
+    for juego in juegos_genero:
+        tabla(juego,"")
 
 def listado_generos():
     lista_generos = []

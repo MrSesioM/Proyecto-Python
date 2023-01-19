@@ -97,8 +97,8 @@ def menu():
                             volver_menu()
                      
                         case "3":
-                            print("\nEn Desarollo")
-                            volver_menu()
+                            Gestiones.eliminar_juegos()
+                            break
 
                         case "0":
                             os.system("cls")
@@ -161,7 +161,7 @@ def menu():
                             volver_menu()
 
                         case "7":
-                            print("\nEn Desarollo")
+                            Tablas.tabla_juegos_nitendo()
                             volver_menu()
 
                         case "8":

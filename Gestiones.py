@@ -1,4 +1,4 @@
-import csv, Tablas
+import csv, os, time
 
 
 lista=[]
@@ -67,8 +67,34 @@ def alta_juegos():
     juego=introduce_datos()
     lista.append(juego)
     return lista[len(lista)-1]
-  
 
+# La funcion elimina los juegos de la lista comprobando el nombre del juego y la plataforma 
+def eliminar_juegos():
+    salir = True
+    while salir:
+        juegos_eliminar = input("Que juego quieres eliminar: ")
+        plataforma_juegos = input("De que plataforma es tu juego: ")
+        for i in lista:
+                if juegos_eliminar.lower() == i[1].lower() and plataforma_juegos.lower() == i[2].lower():
+                    confirmacion = input("Estas seguro Y/N: ")
+
+                    if confirmacion == "y":
+                            lista.remove(i)
+                            os.system("cls")
+                            print("Has eliminado el juego\n",i)
+                            time.sleep(2)
+                            os.system("cls")
+                            salir = False
+
+                    elif confirmacion == "n":
+                            os.system("cls") 
+                            print("No has eliminado ningun juego")
+                            time.sleep(2)
+                            os.system("cls")
+                            salir = False
+                            
+                    
+                
 
 
 leer_csv('vgsales.csv')
@@ -76,3 +102,4 @@ leer_csv('vgsales.csv')
 
 
        
+
