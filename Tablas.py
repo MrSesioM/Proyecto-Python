@@ -77,11 +77,11 @@ def tabla_juegos_por_genero():
     genero = ""
     while (genero not in Listado.listado_generos()):
         genero = input(f"Introduce el género ({Listado.listado_generos()}: ")
-    else:
-        juegos_genero = []
-        for juego in Gestiones.lista:
-            if (genero == juego[4]):
-                juegos_genero.append(juego)
+        
+    juegos_genero = []
+    for juego in Gestiones.lista:
+        if (genero == juego[4]):
+            juegos_genero.append(juego)
 
     for juego in juegos_genero:
         tabla(juego,"")
@@ -94,3 +94,9 @@ def verde():
     
 def blanco():
     print("\033[1;37;40m")
+
+def rojo():
+    print("\033[1;31;40m")
+
+def morado():
+    print("\033[35m")

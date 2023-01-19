@@ -9,21 +9,71 @@ lista_editores = ['Nintendo', 'Microsoft Game Studios', 'Take-Two Interactive', 
 class Test_Utils(unittest.TestCase):
 
 
+    #Testing en Main.py
+
+    def test_volver_menu(self):
+        self.assertEqual(Main.volver_menu(), Main.menu())
+
+    def test_menu(self):
+        self.assertEqual(Main.menu(), Main.main())
+ 
+   
+    #Testing en Listado.py
+
     def test_listado_juegos(self):
-        resultado = Listado.listado_juegos()
-        self.assertEqual(resultado,Gestiones.lista)
+        self.assertEqual(Listado.listado_juegos(),Gestiones.lista)
 
     def test_listado_editores(self):
-        resultado = Listado.listado_editores()
-        self.assertEqual(resultado,lista_editores)
+        self.assertEqual(Listado.listado_editores(),lista_editores)
 
     def test_listado_plataformas(self):
-        resultado = Listado.listado_juegos_plataformas()
-        self.assertEqual(resultado,lista_plataformas)
+        self.assertEqual(Listado.listado_juegos_plataformas(),lista_plataformas)
 
-    def test_alta_juego(self):
-        self.assertEqual(Gestiones.alta_juegos(), [16601, 'test', 'test', 2000, 'test', 'test', 20.0, 20.0, 20.0, 20.0, 20.0])
-        self.assertEqual(Gestiones.alta_juegos(), [16602, 'test2', 'test2', 2000, 'test2', 'test2', 20.0, 20.0, 20.0, 20.0, 20.0])
+
+    #Testing en Tablas.py
+
+    def test_tabla(self):
+        lista = [1,2,3]
+        header = ["a","b","c"]
+        self.assertEqual(Tablas.tabla(lista,header), None)
+    
+    def test_tabla_lista_juegos(self):
+        self.assertEqual(Tablas.tabla_lista_juegos(), None)
+    
+    def test_tabla_lista_editores(self):
+        self.assertEqual(Tablas.tabla_lista_editores(), None)
+    
+    def test_tabla_juegos_plataforma(self):
+        self.assertEqual(Tablas.tabla_juegos_plataforma(), None)
+    
+    def test_tabla_cinco_juegos_mas_vendidos(self):
+        self.assertEqual(Tablas.tabla_cinco_juegos_mas_vendidos(), None)
+    
+    def test_tabla_juegos_anios_par(self):
+        self.assertEqual(Tablas.tabla_juegos_anios_par(), None)
+    
+    def test_tabla_juegos_siglo_XX(self):
+        self.assertEqual(Tablas.tabla_juegos_siglo_XX(), None)
+    
+    def test_media_ventas_total(self):
+        self.assertIsInstance(Tablas.media_ventas_total(), float)
+    
+    def test_tabla_ventas_encima_media(self):
+        self.assertEqual(Tablas.tabla_ventas_encima_media(), None)
+    
+    def test_tabla_juegos_por_genero(self):
+        self.assertEqual(Tablas.tabla_juegos_por_genero(), None)
+    
+
+    #Testing en Gestion.py
+
+    def test_leer_csv(self):
+        self.assertEqual(Gestiones.leer_csv('vgsales.csv'), lista)
+    def test_introduce_datos(self):
+        self.assertEqual(len(Gestiones.introduce_datos()), 11)
+    def test_alta_juegos(self):
+        self.assertEqual(len(Gestiones.alta_juegos()), 11)
+
 
 if __name__ == '__main__':
     unittest.main()

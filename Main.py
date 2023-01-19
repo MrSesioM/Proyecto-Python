@@ -1,9 +1,28 @@
-import Listado,Gestiones, os, time, sys, tabulate, Tablas
+import Listado, Gestiones, os, time, sys, tabulate, Tablas
 
+def testing():
+    import getpass
+    os.system("cls")
+    Tablas.morado()
+    password=getpass.getpass("Has entrado en el modo testing...\n\nIntroduce la password: ")
+    if(password == "testing"):
+        menu_testing()
+    else:
+        Tablas.rojo()
+        print("\nPassword incorrecta!")
+        time.sleep(2)
+        os.system("cls")
+
+def menu_testing():
+    os.system("cls")
+    print("\nEN DESARROLLO")
+    time.sleep(2)
+    os.system("cls")
 
 
 def volver_menu():
     while True:
+        Tablas.blanco()
         opcion = input("\n¿Quieres volver al menu? Y/N: ")
         match opcion:
             case "y":
@@ -21,7 +40,9 @@ def volver_menu():
                 sys.exit()
 
             case _:
+                Tablas.rojo()
                 print("\nNo has elegido una opción correcta.")
+                Tablas.blanco()
 
 
 
@@ -60,7 +81,9 @@ def menu():
                             break
                         
                         case _:
-                            print("\nNo has introducido una opción correcta.")
+                            Tablas.rojo()
+                            print("\nNo has elegido una opción correcta.")
+                            Tablas.blanco()
                             time.sleep(2)
                             os.system("cls")
             
@@ -131,7 +154,9 @@ def menu():
                             break
 
                         case _:
-                            print("\nNo has introducido una opción correcta.")
+                            Tablas.rojo()
+                            print("\nNo has elegido una opción correcta.")
+                            Tablas.blanco()
                             time.sleep(2)
                             os.system("cls")
 
@@ -142,11 +167,26 @@ def menu():
                 time.sleep(1)
                 os.system("cls")
                 sys.exit()
+            
+            case "admin":
+                testing()
+                volver_menu()
+            
             case _:
+                Tablas.rojo()
                 print("\nNo has elegido una opción correcta.")
+                Tablas.blanco()
                 time.sleep(2)
                 os.system("cls")
-def main():
+       
+            
+                    
+                
+
+
+
+                        
+def main():         
 
     menu()
 

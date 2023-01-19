@@ -1,4 +1,4 @@
-import csv
+import csv, Tablas
 
 
 lista=[]
@@ -69,6 +69,10 @@ def alta_juegos():
     return lista[len(lista)-1]
   
 
+
+
 leer_csv('vgsales.csv')
 #introduce_datos()
-    
+
+
+       
