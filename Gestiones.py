@@ -227,7 +227,7 @@ def editar_juegos():
 def eliminar_juegos():
     
     while True:
-            
+        
         juegos_eliminar = input("[Pulse 0 para salir]\nQue juego quieres eliminar: ")
         if juegos_eliminar == "0":
             return False
@@ -247,5 +247,8 @@ def eliminar_juegos():
                     print("\nEl siguiente juego no ha sido eliminado")             
                     return i
            
+
+          
+
 
 leer_csv('vgsales.csv')
