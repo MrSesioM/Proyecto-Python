@@ -56,7 +56,7 @@ class Test_Utils(unittest.TestCase):
     #Testing en Gestion.py
 
     def test_leer_csv(self):
-        self.assertEqual(Gestiones.leer_csv('vgsales.csv'), Gestiones.lista)
+        self.assertEqual(Gestiones.leer_csv('vgsales.csv'), Gestiones.lista_guardar)
       
 if __name__ == '__main__':
     unittest.main()

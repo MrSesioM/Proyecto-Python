@@ -1,6 +1,7 @@
 import csv,os,Listado,time,Tablas
 
 lista=[]
+lista_guardar=[]
 
 def leer_csv(archivo):  #Carga el fichero csv en la lista
 
@@ -12,6 +13,7 @@ def leer_csv(archivo):  #Carga el fichero csv en la lista
         # Recorremos todas las lineas del archivo con un for y guardamos los datos en la lista lista[] que creamos antes
         for row in reader:
             lista.append(row)
+            lista_guardar.append(row)
 
 def comprobacion(datos,pregunta,i): # Compruebo si la plataforma, el género o el desarrollador ya existen o no, y si queremos añadir uno nuevo
 

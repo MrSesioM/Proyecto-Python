@@ -1,36 +1,49 @@
 import Listado, Gestiones, os, time, sys, tabulate, Tablas, csv
 
+
+
 def guardar_cambios():  #Guarda los cambios de lista en un fichero
 
-    opcion_guardar = input("\n¿Quieres guardar los cambios? Y/N: ")
-    match opcion_guardar:
-        case "y":
-            os.system("cls")
-            Tablas.blanco()
-            with open("vgsales2.csv", "w") as f:
-                writer = csv.writer(f)
-                for juego in Gestiones.lista:
-                    with open("vgsales2.csv", "a") as f2:
-                        writer2 = csv.writer(f)
-                        writer2.writerow(juego)
-            print("Guardando...")
-            time.sleep(1)
-            print("Saliendo...")
-            time.sleep(1)
-            sys.exit()
-            
-        case "n":
-            os.system("cls")
-            Tablas.blanco()
-            print("Saliendo...")
-            time.sleep(1)
-            os.system("cls")
-            sys.exit()
+    
+    if Gestiones.lista_guardar!=Gestiones.lista:
+        opcion_guardar= input("\n¿Quieres guardar los cambios? Y/N: ")
+        match opcion_guardar:
+            case "y":
+                os.system("cls")
+                Tablas.blanco()
+                with open("vgsales2.csv", "w") as f:
+                    writer = csv.writer(f)
+                    for juego in Gestiones.lista:
+                        with open("vgsales2.csv", "a") as f2:
+                            writer2 = csv.writer(f)
+                            writer2.writerow(juego)
+                print("Guardando...")
+                time.sleep(1)
+                print("Saliendo...")
+                time.sleep(1)
+                sys.exit()
+                
+            case "n":
+                os.system("cls")
+                Tablas.blanco()
+                print("Saliendo...")
+                time.sleep(1)
+                os.system("cls")
+                sys.exit()
 
-        case _:
-            Tablas.rojo()
-            print("\nNo has elegido una opción correcta.")
-            Tablas.blanco()
+            case _:
+                Tablas.rojo()
+                print("\nNo has elegido una opción correcta.")
+                Tablas.blanco()
+    else:
+        os.system("cls")
+        print("No hay cambios que guardar...")
+        time.sleep(1)
+        Tablas.blanco()
+        print("Saliendo...")
+        time.sleep(1)
+        os.system("cls")
+        sys.exit()
 
 def testing():  #Funcion par acceder a menu_testinf() segun unas condiciones
     import getpass
@@ -58,21 +71,21 @@ def menu_testing():  #Accede al menu de testeo (solo admin)
                         print("MODO TESTING\n")
                         os.system(r"python -m unittest C:\Users\Varito\Documents\Proyecto\_tests\_ttest_proyecto.py")
                         time.sleep(3)
-                        volver_menu()
+                        volver_menu_guardar()
                     case "2":
                         os.system("cls")
                         print("MODO TESTING\n")
                         os.system(r"python -m unittest C:\Users\Varito\Documents\Proyecto\_tests\_ttest_introduce_datos.py")
                         time.sleep(3)
-                        volver_menu()
+                        volver_menu_guardar()
 
                     case "3":
                         Tablas.tabla_paginada()
                         time.sleep(2)
-                        volver_menu()
+                        volver_menu_guardar()
                     case "0":
                         os.system("cls")    
-                        volver_menu()
+                        volver_menu_guardar()
                     case _:
                         Tablas.rojo()
                         print("\nNo has elegido una opción correcta.")
@@ -80,30 +93,6 @@ def menu_testing():  #Accede al menu de testeo (solo admin)
                         time.sleep(2)
                         os.system("cls")
                 
-def volver_menu():  #Llama a la funcion menu()
-    while True:
-        Tablas.blanco()
-        opcion = input("\n¿Quieres volver al menu? Y/N: ")
-        match opcion:
-            case "y":
-                os.system("cls")
-                Tablas.blanco()
-                print("Volviendo al menu...")
-                time.sleep(1)
-                menu()
-            case "n":
-                os.system("cls")
-                Tablas.blanco()
-                print("Saliendo...")
-                time.sleep(1)
-                os.system("cls")
-                sys.exit()
-
-            case _:
-                Tablas.rojo()
-                print("\nNo has elegido una opción correcta.")
-                Tablas.blanco()
-
 def volver_menu_guardar():  #Llama a la funcion menu() pero incluyendo la funcion guardar_cambios()
     while True:
         Tablas.blanco()
@@ -140,7 +129,7 @@ def menu(): #Muestra unas opciones para realizar tareas especificas sobre lista
             case "1":
                 os.system("cls")
                 while True:
-    
+                    Tablas.verde()
                     menu = [["[1]", "Dar de alta un juego"],["[2]", "Editar un juego"],["[3]","Eliminar un juego"],["[0]", "Volver"]]
                     print(tabulate.tabulate(menu, headers=[" *","Gestionar juegos"], tablefmt="fancy_grid"))
                     header = ['Rank','Name', 'Platform', 'Year', 'Genre', 'Publisher', 'NA_Sales (mill)', 'EU_Sales (mill)', 'JP_Sales (mill)', 'Other_Sales (mill)', 'Global_Sales (mill)']
@@ -170,14 +159,13 @@ def menu(): #Muestra unas opciones para realizar tareas especificas sobre lista
                         case _:
                             Tablas.rojo()
                             print("\nNo has elegido una opción correcta.")
-                            Tablas.blanco()
                             time.sleep(2)
                             os.system("cls")
             
             case "2":
                 os.system("cls")
                 while True:
-    
+                    Tablas.verde()
                     menu = [["[1]", "Listar todos los juegos "], 
                         ["[2]", "Listar todos los editores"], 
                         ["[3]", "Listar todos los juegos del género 'Plataformas'"],
@@ -196,40 +184,40 @@ def menu(): #Muestra unas opciones para realizar tareas especificas sobre lista
                     match opcion:
                         case "1":
                             Tablas.tabla_lista_juegos()
-                            volver_menu()
+                            volver_menu_guardar()
 
                         case "2":
                             Tablas.tabla_lista_editores()
-                            volver_menu() 
+                            volver_menu_guardar() 
                         
                         case "3":
                             Tablas.tabla_juegos_plataforma()
-                            volver_menu()
+                            volver_menu_guardar()
                         
                         case "4":
                             Tablas.tabla_juegos_por_genero()   
-                            volver_menu()
+                            volver_menu_guardar()
                         
                     
                         case "5":
                             Tablas.tabla_juegos_siglo_XX()
-                            volver_menu()
+                            volver_menu_guardar()
 
                         case "6":
                             Tablas.tabla_juegos_anios_par()
-                            volver_menu()
+                            volver_menu_guardar()
 
                         case "7":
                             Tablas.tabla_juegos_nintendo()
-                            volver_menu()
+                            volver_menu_guardar()
 
                         case "8":
                             Tablas.tabla_ventas_encima_media()
-                            volver_menu()
+                            volver_menu_guardar()
 
                         case "9":
                             Tablas.tabla_cinco_juegos_mas_vendidos()
-                            volver_menu()
+                            volver_menu_guardar()
 
                         case "0":
                             os.system("cls")
@@ -238,7 +226,6 @@ def menu(): #Muestra unas opciones para realizar tareas especificas sobre lista
                         case _:
                             Tablas.rojo()
                             print("\nNo has elegido una opción correcta.")
-                            Tablas.blanco()
                             time.sleep(2)
                             os.system("cls")
 
@@ -253,7 +240,7 @@ def menu(): #Muestra unas opciones para realizar tareas especificas sobre lista
             
             case "admin":
                 testing()
-                volver_menu()
+                volver_menu_guardar()
             
             case _:
                 Tablas.rojo()

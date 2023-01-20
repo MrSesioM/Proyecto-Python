@@ -102,7 +102,7 @@ def tabla_paginada():   #Crear una tabla paginada (testing)
     print(paginado)
 
 
-#Crear clase Colores(self,color):
+#def Colores(color):
 
 def naranja():  #Color naranja
     print("\033[33m")
