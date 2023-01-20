@@ -1,7 +1,7 @@
 import unittest,random,Gestiones
 
 variable = input("\nSe generaran 11 valores aleatorios para una lista (numero o texto dependiendo de la posicion en la lista de los juegos).\nLa funcion compara el tipo cada elemento de la lista generada contra la lista que contiene los detalles de un juego.\nIndica el nº de listas para comprobar en la funcion Introduce_datos().\n\n>")
-letras = "abcdefghijklmnopqrstuvwxyz"
+
 
 class Test_Utils(unittest.TestCase):
 

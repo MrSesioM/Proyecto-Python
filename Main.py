@@ -1,7 +1,5 @@
 import Listado, Gestiones, os, time, sys, tabulate, Tablas, csv
 
-
-
 def guardar_cambios():  #Guarda los cambios de lista en un fichero
 
     
@@ -58,7 +56,7 @@ def testing():  #Funcion par acceder a menu_testinf() segun unas condiciones
         time.sleep(2)
         os.system("cls")
 
-def menu_testing():  #Accede al menu de testeo (solo admin) 
+def menu_testing():  #Accede al menu de testeo (solo admin)
     
     os.system("cls")
     while True:
@@ -252,5 +250,6 @@ def menu(): #Muestra unas opciones para realizar tareas especificas sobre lista
 def main(): #Funcion main()-->llama a menu()
     menu()
 
-
 main()
+
+#Render text
